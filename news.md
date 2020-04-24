@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: News
+permalink: /news/
 mathjax: true
 comments: true
 ---
