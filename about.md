@@ -3,7 +3,6 @@ layout: page
 title: About
 permalink: /about/
 mathjax: true
-comments: true
 ---
 
 [Giorgio Giannone](https://www.linkedin.com/in/giorgio-c-giannone/)
