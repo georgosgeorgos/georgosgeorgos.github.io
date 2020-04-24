@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Representing by Transforming
-permalink: /transforming/
+comments: true
+title: "Representing by Transforming"
+excerpt: "Or how the world transforms."
 mathjax: true
 ---
 
