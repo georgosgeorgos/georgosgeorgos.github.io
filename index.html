@@ -1,9 +1,18 @@
-<h2>georgos</h2>
-<p><i><b>Inverse Turing Test:</b> a person so stupid that you think he (it?) is a Netbook (quote)</i></p>
-<p><b>Info: </b> NaN </p>
-<p><b>Where: </b> Not always in Rome</p>
-<p><b>Education: </b> Mechanical "so-called" Engineering &amp; Data "so-called" Science</p>
-<p><b>Interests: </b> (Artificial) Intelligence, Statistical (Machine) Learning &cap; Optimization, (Turbulent) Flows, (Statistical) Mechanics
-<p><b>Medium term goal:</b> Elo &ge; 2.6e3 <p/> 
-<a href="https://github.com/georgosgeorgos">GitHub</a>
-<a href="https://www.linkedin.com/in/giorgio-c-giannone/">LinkedIn</a>
+---
+layout: default
+---
+
+<div class="home">
+  
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <br>
+        {{ post.excerpt }}
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>
