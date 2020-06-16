@@ -6,6 +6,7 @@ baseurl: ""
 url: "http://georgosgeorgos.github.io"
 twitter_username: georgosgeorgos
 github_username:  georgosgeorgos
+linkedin_username:  giorgio-c-giannone
 
 # Build settings
 markdown: kramdown

@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-[Giorgio Giannone](https://www.linkedin.com/in/giorgio-c-giannone/)
+[Click here for a semi serious intro](https://georgosgeorgos.github.io/giorgiogiannone/)
 
 * Info: NaN
 * Where: Not always in Rome
