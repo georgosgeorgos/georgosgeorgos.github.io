@@ -3,6 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="./assets/images/me.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
     <style type="text/css">
@@ -181,8 +182,10 @@
                                 <td width="100%" valign="middle">
                                     <heading id="research">Research</heading>
                                     <p>
-                                        I am broadly interested in probabilistic machine learning, perception and geometry, with a focus on
-                                        deep latent variable models, few-shot generation, transfer learning, and diffusion models.
+                                        <em>
+                                        I am broadly interested in probabilistic machine learning, perception and geometry, <br>
+                                        with a focus on deep latent variable models, few-shot generation, transfer learning, and diffusion models.
+                                    </em>
                                     </p>
                                 </td>
                             </tr>
@@ -202,45 +205,72 @@
                             </tr>
                         </tbody>
                         <tbody> -->
+                        <tr>
+                            <td width="25%"><img src="./assets/images/fsdm.png" alt="blind-date" width="90%"></td>
+                            <td width="75%" valign="top">
+                                <p>
+                                    <a href="" target="_blank">
+                                        <papertitle>Few-Shot Diffusion Models
+                                        </papertitle>
+                                    </a>
+                                    <br>
+                                    <strong>Giorgio Giannone</strong>,
+                                    <a href="https://didriknielsen.github.io/" target="_blank">Didrik Nielsen</a>,
+                                    <a href="https://olewinther.github.io/" target="_blank">Ole Winther</a>
+                                    <br>
+                                    <em>under-review</em>, 2022
+                                    <br>
+                                </p>
+                                <p>
+                                    Denoising diffusion probabilistic models (DDPM) are powerful hierarchical latent variable models with remarkable sample generation quality and training stability.
+    These properties can be attributed to parameter sharing in the generative hierarchy, as well as a parameter-free diffusion-based inference procedure.
+    In this paper, we present Few-Shot Diffusion Models (FSDM), a framework for few-shot generation leveraging conditional DDPMs. 
+    FSDMs are trained to adapt the generative process conditioned on a small set of images from a given class by aggregating image patch information using a set-based Vision Transformer (ViT). 
+    At test time, the model is able to generate samples from previously unseen classes conditioned on as few as 5 samples from that class.
+    We empirically show that FSDM can perform few-shot generation and transfer to new datasets taking full advantage of the conditional DDPM.
+    We benchmark variants of our method on complex vision datasets for few-shot learning and compare to unconditional and conditional DDPM baselines.
+    Additionally, we show how conditioning the model on patch-based input set information improves training convergence.
+                                </p>
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td width="25%"><img src="./assets/images/hfsgm1.png" alt="blind-date" width="90%"></td>
+                            <td width="25%"><img src="./assets/images/scha-vae.png" alt="blind-date" width="90%"></td>
                             <td width="75%" valign="top">
                                 <p>
                                     <a href="https://arxiv.org/abs/2110.12279" target="_blank">
-                                        <papertitle>Hierarchical Few-Shot Generative Models
+                                        <papertitle>Hierarchical Context Aggregation for
+                                            Few-Shot Generation
                                         </papertitle>
                                     </a>
                                     <br>
                                     <strong>Giorgio Giannone</strong>,
                                     <a href="https://olewinther.github.io/" target="_blank">Ole Winther</a>
                                     <br>
-                                    <em>Under-review</em>, 2021
+                                    <em>International Conference on Machine Learning, ICML</em>, 2022
                                     <br>
                                 </p>
-                                <p>A few-shot generative model should be able to generate data from a distribution
-                                    by only observing a limited set of examples.
-                                    In few-shot learning the model is trained on data from many sets from different distributions
-                                    sharing some underlying properties such as sets of characters from different alphabets
-                                    or sets of images of different type objects.
-                                    We extend current latent variable models for sets to a fully hierarchical approach
-                                    with an attention-based point to set-level aggregation and call our approach
-                                    SCHA-VAE for Set-Context-Hierarchical-Aggregation Variational Autoencoder.
-                                    We explore iterative data sampling, likelihood-based model comparison,
-                                    and adaptation-free out of distribution generalization.
-                                    Our results show that the hierarchical formulation better captures
-                                    the intrinsic variability within the sets in the small data regime.
+                                <p>A few-shot generative model should generate data from a novel distribution by only observing a limited set of examples. 
+                                    In few-shot learning the model is trained on data from many sets from distributions sharing some underlying properties such 
+                                    as sets of characters from different alphabets or objects from different categories.
+                                    We extend current latent variable models for sets to a fully hierarchical approach with an attention-based point to 
+                                    set-level aggregation and call our method SCHA-VAE for Set-Context-Hierarchical-Aggregation Variational Autoencoder. 
+                                    We explore likelihood-based model comparison, iterative data sampling, and adaptation-free out-of-distribution generalization. 
+                                    Our results show that the hierarchical formulation better captures the intrinsic variability within the sets in the small data regime.
+                                    This work generalizes deep latent variable approaches to few-shot learning, taking a step toward large-scale few-shot generation with 
+                                    a formulation that readily works with current state-of-the-art deep generative models.
                                 </p>
                             </td>
                         </tr>
 
                         <tr>
-                            <td width="25%"><img src="./assets/images/mixup_normal.png" alt="blind-date" width="90%"></td>
+                            <td width="25%"><img src="./assets/images/jm1_bar.png" alt="blind-date" width="90%"></td>
                             <td width="75%" valign="top">
                                 <p>
                                     <a href="https://www.amazon.science/publications/just-mix-once-mixing-samples-with-implicit-group-distribution"
                                         target="_blank">
-                                        <papertitle>Just Mix Once: Mixing Samples with Implicit Group Distribution
+                                        <papertitle>Just Mix Once: Worst-group Generalization by Group
+                                            Interpolation
                                         </papertitle>
                                     </a>
                                     <br>
@@ -250,18 +280,52 @@
                                     <a href="https://sites.google.com/site/emineyilmaz/home" target="_blank">Emine Yilmaz</a>,
                                     <a href="https://yunlongjiao.github.io/" target="_blank">Yunlong Jiao</a>,
                                     <br>
-                                    <em>Under-review</em>, 2021
+                                    <em>Under-review</em>, 2022 - <em>also Distribution Shifts Workshop, NeurIPS</em>, 2021
                                     <br>
                                 </p>
                                 <p>
-                                    Recent work has unveiled how average generalization frequently relies on superficial patterns
-                                    in data. The consequences are brittle models with poor performance in the presence
-                                    of domain shift in group distribution at test time.
-                                    When the subgroups in the training data are known, we can use tools from robust optimization
-                                    to tackle the problem. However, group annotation and identification are time-consuming tasks,
-                                    especially on large datasets.
-                                    We propose a new class-conditional variant of MixUp for worst-group
-                                    generalization, augmenting the training distribution with a continuous distribution of groups.
+                                    Advances in deep learning theory have unveiled how average generalization relies on superficial patterns in data.
+                                    The consequences are brittle models with poor performance with shift in group distribution at test time.
+                                    When group annotation is available, we can use tools from robust optimization to tackle the problem. 
+                                    However, identification and annotation are time-consuming, especially on large datasets.
+                                    A recent line of work leverages self-supervision and oversampling to improve generalization on minority groups without group annotation.
+                                    We propose to unify and generalize these approaches using a class-conditional variant of mixup tailored for worst-group generalization. 
+                                    Our approach, Just Mix Once (JM1), interpolates samples during learning, augmenting the training distribution with a continuous mixture of groups. 
+                                    JM1 is domain agnostic and computationally efficient, can be used with any level of group annotation, 
+                                    and performs on par or better than the state-of-the-art on worst-group generalization. 
+                                    Additionally, we provide a simple explanation of why JM1 works.
+                                </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="25%"><img src="./assets/images/hfsgm.png" alt="blind-date" width="90%"></td>
+                            <td width="75%" valign="top">
+                                <p>
+                                    <a href="https://openreview.net/forum?id=INSai0E0VXN" target="_blank">
+                                        <papertitle>Hierarchical Few-Shot Generative Models
+                                        </papertitle>
+                                    </a>
+                                    <br>
+                                    <strong>Giorgio Giannone</strong>,
+                                    <a href="https://olewinther.github.io/" target="_blank">Ole Winther</a>
+                                    <br>
+                                    <em>Meta-Learning Workshop, NeurIPS</em>, 2021
+                                    <br>
+                                </p>
+                                <p>A few-shot generative model should be able to generate data from a distribution
+                                    by only observing a limited set of examples. In few-shot learning the model is
+                                    trained on data from many sets from different distributions sharing some underlying
+                                    properties such as sets of characters from different alphabets or sets of images
+                                    of different type objects. We study a latent variables approach that extends the
+                                    Neural Statistician to a fully hierarchical approach with an attention-based
+                                    point to set-level aggregation. We extend the previous work to iterative data sampling, 
+                                    likelihood-based model comparison, and adaptation-free out of distribution
+                                    generalization. Our results show that the hierarchical formulation better captures
+                                    the intrinsic variability within the sets in the small data regime. With this work
+                                    we generalize deep latent variable approaches to few-shot learning, taking a step
+                                    towards large-scale few-shot generation with a formulation that readily can work
+                                    with current state-of-the-art deep generative models.
                                 </p>
                             </td>
                         </tr>
@@ -280,7 +344,7 @@
                                     <a href="https://people.lu.usi.ch/mascij/" target="_blank">Jonathan Masci</a>,
                                     <a href="https://osdf.github.io/" target="_blank">Christian Osendorfer</a>
                                     <br>
-                                    <em>Preprint</em>, 2020
+                                    <em>Technical Report</em>, 2020
                                     <br>
                                 </p>
                                 <p>We extend the framework of variational autoencoders to represent transformations
@@ -461,6 +525,18 @@
     </tr>
     </tbody>
     </table>
+
+    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+        <tbody><tr>
+          <td>
+          <br>
+          <p align="right"><font size="2">
+            <a href="https://people.eecs.berkeley.edu/~barron/" target="_blank">the original</a>
+            </font>
+          </p>
+          </td>
+        </tr>
+    </tbody></table>
 
 </body>
 
