@@ -142,11 +142,11 @@
                                 <td width="100%" valign="middle">
                                     <heading id="news">News</heading>
                                     <ul>
-                                        <!-- <li>Aug 2020: I will present a poster at <a href="https://smiles.skoltech.ru/school" target="_blank">SMILES2020</a>.
+                                        <li>Aug 2020: I will present a poster at <a href="https://smiles.skoltech.ru/school" target="_blank">SMILES2020</a>.
                             </li>
                             <li>July 2020: I presented a poster at <a href="https://www.eeml.eu/" target="_blank">EEML2020</a>.
-                            </li> -->
-                    <!-- <li>June 2020: Starting <a href="https://www.compute.dtu.dk/english/research/research-sections/cogsys"
+                            </li>
+                    <li>June 2020: Starting <a href="https://www.compute.dtu.dk/english/research/research-sections/cogsys"
                                                 target="_blank">PhD</a>!
                                         </li>
                                         <li>Apr 2020: Extended preprint for <a href="https://arxiv.org/abs/1912.03845" target="_blank">No Representation without
@@ -174,13 +174,10 @@
                         </tbody>
                     </table> -->
 
-                    <!-- ######## RESEARCH  #########-->
-
                     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
                         <tbody>
                             <tr>
                                 <td width="100%" valign="middle">
-                                    <heading id="research">Research</heading>
                                     <p>
                                         <em>
                                         I am broadly interested in probabilistic machine learning, perception and geometry, <br>
@@ -192,21 +189,41 @@
                         </tbody>
                     </table>
 
+                    <!-- RESEARCH -->
+                    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+                        <tbody>
+                            <tr>
+                                <td width="100%" valign="middle">
+                                    <heading id="research">Research</heading>
+                                    <p>
+                                        I am interested in the generalization and adaptation capacities of hierarchical generative models.<br> <br> 
+                                        Large generative models trained on millions of data points exhibit emergent adaptation properties like in-context learning, being able to solve novel tasks given a handful of samples. 
+                                        However, such adaptation properties emerge only with scale, being absent for middle-size models trained on small datasets, 
+                                        a typical scenario in engineering design and scientific discovery, where data collection is expensive and computational constraints are present.<br> <br> 
+                                        My research goal is to bridge the gap in adaptation capabilities between large and middle-size generative models. 
+                                        Leveraging the tools of hierarchical inference and using the training dataset in such a way as to encourage adaptation at inference time, 
+                                        we can learn expressive families of conditional generative processes and perform few-shot generation and transfer learning in the small data regime.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                     <!-- ######## PAPERS #########-->
 
 
                     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-                        <!-- <tbody>
+                        <tbody>
                             <tr>
                                 <td>
-                                    <heading>Publications</heading>
+                                    <heading>Papers</heading>
                                 </td>
 
                             </tr>
                         </tbody>
-                        <tbody> -->
+                        <tbody>
                         <tr>
-                            <td width="25%"><img src="./assets/images/fsdm.png" alt="blind-date" width="90%"></td>
+                            <td width="25%"><img src="./assets/images/fsdm.png" alt="blind-date" width="80%"></td>
                             <td width="75%" valign="top">
                                 <p>
                                     <a href="https://arxiv.org/abs/2205.15463" target="_blank">
@@ -228,8 +245,6 @@
                                     FSDMs are trained to adapt the generative process conditioned on a small set of images from a given class by aggregating image patch information using a set-based Vision Transformer (ViT). 
                                     At test time, the model is able to generate samples from previously unseen classes conditioned on as few as 5 samples from that class.
                                     We empirically show that FSDM can perform few-shot generation and transfer to new datasets taking full advantage of the conditional DDPM.
-                                    We benchmark variants of our method on complex vision datasets for few-shot learning and compare to unconditional and conditional DDPM baselines.
-                                    Additionally, we show how conditioning the model on patch-based input set information improves training convergence.
                                 </p>
                             </td>
                         </tr>
@@ -267,7 +282,7 @@
                             <td width="25%"><img src="./assets/images/jm1_bar.png" alt="blind-date" width="90%"></td>
                             <td width="75%" valign="top">
                                 <p>
-                                    <a href="https://www.amazon.science/publications/just-mix-once-mixing-samples-with-implicit-group-distribution"
+                                    <a href="https://arxiv.org/abs/2210.12195"
                                         target="_blank">
                                         <papertitle>Just Mix Once: Worst-group Generalization by Group
                                             Interpolation
@@ -284,14 +299,15 @@
                                     <br>
                                 </p>
                                 <p>
-                                    Advances in deep learning theory have unveiled how average generalization relies on superficial patterns in data.
-                                    The consequences are brittle models with poor performance with shift in group distribution at test time.
-                                    When group annotation is available, we can use tools from robust optimization to tackle the problem. 
+                                    Advances in deep learning theory have revealed how average generalization relies on superficial patterns in data. 
+                                    The consequences are brittle models with poor performance with shift in group distribution at test time. 
+                                    When group annotation is available, we can use robust optimization tools to tackle the problem. 
                                     However, identification and annotation are time-consuming, especially on large datasets.
-                                    A recent line of work leverages self-supervision and oversampling to improve generalization on minority groups without group annotation.
-                                    We propose to unify and generalize these approaches using a class-conditional variant of mixup tailored for worst-group generalization. 
-                                    Our approach, Just Mix Once (JM1), interpolates samples during learning, augmenting the training distribution with a continuous mixture of groups. 
-                                    JM1 is domain agnostic and computationally efficient, can be used with any level of group annotation, 
+                                    A recent line of work leverages self-supervision and oversampling to improve generalization on minority groups 
+                                    without group annotation. We propose to unify and generalize these approaches using a class-conditional variant 
+                                    of mixup tailored for worst-group generalization. Our approach, Just Mix Once (JM1), 
+                                    interpolates samples during learning, augmenting the training distribution with a continuous mixture of groups. 
+                                    JM1 is domain agnostic and computationally efficient, can be used with any level of group annotation,
                                     and performs on par or better than the state-of-the-art on worst-group generalization. 
                                     Additionally, we provide a simple explanation of why JM1 works.
                                 </p>
@@ -447,6 +463,37 @@
         <tbody>
             <tr>
                 <td>
+                    <heading>Open-source</heading>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+
+            <tr>
+                <td width="25%"><img src="./assets/images/gt4sd_logo.png" alt="blind-date" width="100%"></td>
+                <td width="75%" valign="top">
+                    <p>
+                        <a href="https://github.com/GT4SD/gt4sd-core" target="_blank">
+                        <papertitle>GT4SD: Generative Toolkit for Scientific Discovery
+                        </papertitle>
+                        </a>
+                        <br>
+                        GT4SD Team, 2022
+                        <br>
+                        <br>
+                    </p>
+                    <p>The GT4SD (Generative Toolkit for Scientific Discovery) is an open-source platform to accelerate hypothesis generation in the scientific discovery process. It provides a library for making state-of-the-art generative AI models easier to use.</p>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+        </tbody>
+    </table>
+
+    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+        <tbody>
+            <tr>
+                <td>
                     <heading>Patents</heading>
                 </td>
             </tr>
@@ -457,13 +504,15 @@
                 <td width="25%"><img src="./assets/images/pred_common1.png" alt="blind-date" width="100%"></td>
                 <td width="75%" valign="top">
                     <p>
-                        <papertitle>Method and apparatus for semantic segmentation and depth completion using a convolutional neural network
-                        </papertitle>
+                        <a href="https://patents.google.com/patent/US11263756B2/en">
+                            <papertitle>Method and apparatus for semantic segmentation and depth completion using a convolutional neural network
+                            </papertitle>
+                        </a>
                         <br>
                         Boris Chidlovskii,
                         Giorgio Giannone
                         <br>
-                        <em>US Patent App. 16/707,404</em>, 2021
+                        <em>US Patent US11263756B2</em>, 2022
                         <br>
                     </p>
                     <p></p>
