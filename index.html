@@ -235,6 +235,95 @@
                         </tbody>
                         <tbody>
 
+
+                        <tr>
+                            <td width="25%"><img src="./assets/images/ta.png" alt="blind-date" width="90%"></td>
+                            <td width="75%" valign="top">
+                                <p>
+                                    <a href="" target="_blank">
+                                        <papertitle>Aligning Optimization Trajectories with Diffusion Models for Constrained Design Generation
+                                        </papertitle>
+                                    </a>
+                                    <br>
+                                    <strong>Giorgio Giannone</strong>,
+                                    <a href="https://akashgit.github.io" target="_blank">Akash Srivastava</a>,
+                                    <a href="https://olewinther.github.io/" target="_blank">Ole Winther</a>,
+                                    <a href="https://meche.mit.edu/people/faculty/faez@MIT.EDU" target="_blank">Faez Ahmed</a>
+                                    <br>
+                                    <em>under-review</em>, 2023
+                                    <br>
+                                </p>
+                                <p>
+                                    Generative models have had a profound impact on vision and language, paving the way for a new era of multimodal generative applications. 
+                                    While these successes have inspired researchers to explore using generative models in science and engineering to accelerate the design process and reduce the reliance on iterative optimization, challenges remain. 
+                                    Specifically, engineering optimization methods based on physics still outperform generative models when dealing with constrained environments where data is scarce and precision is paramount. 
+                                    To address these challenges, we introduce Diffusion Optimization Models (DOM) and Trajectory Alignment (TA), 
+                                    a learning framework that demonstrates the efficacy of aligning the sampling trajectory of diffusion models with the optimization trajectory derived from traditional physics-based methods. 
+                                </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="25%"><img src="./assets/images/csgm.png" alt="blind-date" width="90%"></td>
+                            <td width="75%" valign="top">
+                                <p>
+                                    <a href="" target="_blank">
+                                        <papertitle>Learning from Invalid Data: On Constraint Satisfaction in Generative Models
+                                        </papertitle>
+                                    </a>
+                                    <br>
+                                    <strong>Giorgio Giannone</strong>*,
+                                    <a href="https://scholar.google.com/citations?user=MQ9nKDsAAAAJ&hl=en" target="_blank">Lyle Regenwetter*</a>,
+                                    <a href="https://akashgit.github.io" target="_blank">Akash Srivastava*</a>,
+                                    <a href="https://research.ibm.com/people/dan-gutfreund" target="_blank">Dan Gutfreund</a>,
+                                    <a href="https://meche.mit.edu/people/faculty/faez@MIT.EDU" target="_blank">Faez Ahmed</a>
+                                    <br>
+                                    <em>under-review</em>, 2023
+                                    <br>
+                                </p>
+                                <p>
+                                    Generative models have demonstrated impressive results in vision, language, and speech. 
+                                    However, even with massive datasets, they struggle with precision, generating physically invalid or factually incorrect data. 
+                                    This is particularly problematic when the generated data must satisfy constraints, for example, to meet product specifications in engineering design or to adhere to the laws of physics in a natural scene. 
+                                    To improve precision while preserving diversity and fidelity, we propose a novel training mechanism that leverages datasets of constraint-violating data points, which we consider invalid. 
+                                    Our approach minimizes the divergence between the generative distribution and the valid prior while maximizing the divergence with the invalid distribution. 
+                                    We demonstrate how generative models like Generative Adversarial Networks and Denoising Diffusion Probabilistic Models that we augment to train with negative data vastly outperform their standard counterparts which solely train on valid data points.  
+                                </p>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                        <td width="25%"><img src="./assets/images/mdmt-clm.png" alt="blind-date" width="90%"></td>
+                        <td width="75%" valign="top">
+                            <p>
+                                <a href="https://arxiv.org/abs/2301.12586" target="_blank">
+                                    <papertitle>Unifying Molecular and Textual Representations via Multi-task Language Modelling
+                                    </papertitle>
+                                </a>
+                                <br>
+                                <a href="https://researcher.watson.ibm.com/researcher/view.php?person=zurich-DIC" target="_blank">Dimitrios Christofidellis</a>*
+                                <strong>Giorgio Giannone</strong>*,
+                                <a href="https://research.ibm.com/people/jannis-born" target="_blank">Jannis Born</a>,
+                                <a href="https://olewinther.github.io/" target="_blank">Ole Winther</a>,
+                                <a href="https://research.ibm.com/people/teodoro-laino" target="_blank">Teodoro Laino</a>,
+                                <a href="https://research.ibm.com/people/matteo-manica" target="_blank">Matteo Manica</a>
+                                <br>
+                                <em>International Conference on Machine Learning, ICML</em>, 2023
+                                <br>
+                            </p>
+                            <p>
+                                The recent advances in neural language models have also been successfully applied to the field of chemistry, 
+                                offering generative solutions for classical problems in molecular design and synthesis planning. These new methods have the potential to optimize laboratory operations and fuel 
+                                a new era of data-driven automation in scientific discovery. However, specialized models are still typically required for each task, leading to the need for problem-specific 
+                                fine-tuning and neglecting task interrelations. The main obstacle in this field is the lack of a unified representation between natural language and chemical representations, 
+                                complicating and limiting human-machine interaction. Here, we propose a multi-domain, multi-task language model to solve a wide range of tasks in both the chemical and natural 
+                                language domains. By leveraging multi-task learning, our model can handle chemical and natural language concurrently, without requiring expensive pre-training on single 
+                                domains or task-specific models.
+                            </p>
+                        </td>
+                        </tr>
+
                         <tr>
                             <td width="25%"><img src="./assets/images/todm.png" alt="blind-date" width="90%"></td>
                             <td width="75%" valign="top">
@@ -257,45 +346,11 @@
                                     Learning-based approaches have been developed to accelerate the topology optimization process, but these methods can generate designs with floating material 
                                     and low performance when challenged with out-of-distribution constraint configurations. Recently, deep generative models, such as Generative Adversarial Networks and Diffusion Models, 
                                     conditioned on constraints and physics fields have shown promise, but they require extensive pre-processing and surrogate models for improving performance. 
-                                    To address these issues, we propose a Generative Optimization method that integrates classic optimization like SIMP as a refining mechanism for the topology generated by a deep generative model. 
-                                    <!-- We also remove the need for conditioning on physical fields using a computationally inexpensive approximation inspired by classic ODE solutions and reduce the number of steps needed to generate 
-                                    a feasible and performant topology. Our method allows us to efficiently generate good topologies and explicitly guide them to regions with high manufacturability and high performance, 
-                                    without the need for external auxiliary models or additional labeled data. We believe that our method can lead to significant advancements in the design and optimization of structures 
-                                    in engineering applications, and can be applied to a broader spectrum of performance-aware engineering design problems. -->
+                                    To address these issues, we propose a Generative Optimization method that integrates classic optimization like SIMP as a refining mechanism for the topology generated by a deep generative model.
                                 </p>
                             </td>
                         </tr>
 
-                        <tr>
-                            <td width="25%"><img src="./assets/images/mdmt-clm.png" alt="blind-date" width="90%"></td>
-                            <td width="75%" valign="top">
-                                <p>
-                                    <a href="https://arxiv.org/abs/2301.12586" target="_blank">
-                                        <papertitle>Unifying Molecular and Textual Representations via Multi-task Language Modelling
-                                        </papertitle>
-                                    </a>
-                                    <br>
-                                    <a href="https://researcher.watson.ibm.com/researcher/view.php?person=zurich-DIC" target="_blank">Dimitrios Christofidellis</a>*
-                                    <strong>Giorgio Giannone</strong>*,
-                                    <a href="https://research.ibm.com/people/jannis-born" target="_blank">Jannis Born</a>,
-                                    <a href="https://olewinther.github.io/" target="_blank">Ole Winther</a>,
-                                    <a href="https://research.ibm.com/people/teodoro-laino" target="_blank">Teodoro Laino</a>,
-                                    <a href="https://research.ibm.com/people/matteo-manica" target="_blank">Matteo Manica</a>
-                                    <br>
-                                    <em>International Conference on Machine Learning, ICML</em>, 2023
-                                    <br>
-                                </p>
-                                <p>
-                                    The recent advances in neural language models have also been successfully applied to the field of chemistry, 
-                                    offering generative solutions for classical problems in molecular design and synthesis planning. These new methods have the potential to optimize laboratory operations and fuel 
-                                    a new era of data-driven automation in scientific discovery. However, specialized models are still typically required for each task, leading to the need for problem-specific 
-                                    fine-tuning and neglecting task interrelations. The main obstacle in this field is the lack of a unified representation between natural language and chemical representations, 
-                                    complicating and limiting human-machine interaction. Here, we propose a multi-domain, multi-task language model to solve a wide range of tasks in both the chemical and natural 
-                                    language domains. By leveraging multi-task learning, our model can handle chemical and natural language concurrently, without requiring expensive pre-training on single 
-                                    domains or task-specific models.
-                                </p>
-                            </td>
-                        </tr>
                         <tr>
                             <td width="25%"><img src="./assets/images/fsdm.png" alt="blind-date" width="70%"></td>
                             <td width="75%" valign="top">
@@ -424,10 +479,10 @@
                             <td width="25%"><img src="./assets/images/gm_all.png" alt="blind-date" width="90%"></td>
                             <td width="75%" valign="top">
                                 <p>
-                                    <!-- <a href="" target="_blank"> -->
+                                    <a href="./assets/report/tauvae.pdf" target="_blank">
                                     <papertitle>Transformation-aware Variational Autoencoder
                                     </papertitle>
-                                    <!-- </a> -->
+                                    </a>
                                     <br>
                                     <strong>Giorgio Giannone</strong>,
                                     <a href="https://simons.berkeley.edu/people/saeed-saremi" target="_blank">Saeed Saremi</a>,
