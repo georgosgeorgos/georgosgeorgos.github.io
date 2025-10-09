@@ -139,7 +139,7 @@
                                     <!-- ######## ABSTRACT #########-->
                                     <p>
                                         <!-- <b> -->
-                                        I am a <a>Research Scientist</a> on the AI Innovation Team at <a
+                                        I am a <a>Principal Research Scientist</a> on the AI Innovation Team at <a
                                             href="https://ai-innovation.team" target="_blank"><strong>Red
                                                 Hat</strong></a> in Boston, 
                                                 where my work centers on advancing Probabilistic Inference techniques for Vision and Language Models.
@@ -288,12 +288,11 @@
                                 <td width="100%" valign="middle">
                                     <p>
                                         <em>
-                                            I am an engineer and researcher working on Generative AI and
+                                            I am a researcher and engineer working on Generative AI and
                                             Probabilistic Deep
                                             Learning, <br>
-                                            with a focus on Vision-Language Alignment, Conditional
-                                            Diffusion Models, Few-Shot Generation, <br> and Hierarchical Variational
-                                            Inference.
+                                            with a focus on Inference-Time Scaling, Test-Time Adaptation, Vision-Language Alignment, and Conditional
+                                            Diffusion Models.
                                         </em>
                                     </p>
                                 </td>
@@ -336,6 +335,44 @@
                         </tbody>
 
                         <tbody>
+
+                            <tr>
+                                <td width="25%"><img src="./assets/images/epf.png" alt="blind-date" width="90%"></td>
+                                <td width="75%" valign="top">
+                                    <p>
+                                        <a href="https://arxiv.org/abs/2510.05825" target="_blank">
+                                            <papertitle>Mitigating Premature Exploitation in Particle-based Monte Carlo for Inference-Time Scaling
+                                            </papertitle>
+                                        </a>
+                                        <br>
+                                        <strong>Giorgio Giannone</strong>,
+                                        <a href="" target="_blank">Guangxuan Xu</a>,
+                                        <a href="" target="_blank">Nikhil Shivakumar Nayak</a>,
+                                        <a href="" target="_blank">Rohan Mahesh Awhad</a>,
+                                        <a href="" target="_blank">Shivchander Sudalairaj</a>,
+                                        <a href="" target="_blank">Kai Xu</a>,
+                                        <a href="" target="_blank">Akash Srivastava</a>,
+                                        <br>
+                                        <em>Under Review</em>, 2025
+                                        <br>
+                                    </p>
+                                    <p>
+                                        Inference-Time Scaling (ITS) improves language models by allocating more computation at generation time. 
+                                        Particle Filtering (PF) has emerged as a strong ITS method for complex mathematical reasoning tasks, 
+                                        but it is vulnerable when guided by process reward models, which often assign overconfident scores early in the reasoning process. 
+                                        This causes PF to suffer from premature exploitation: it myopically commits to locally promising trajectories, 
+                                        prunes potentially correct hypotheses, and converges to suboptimal solutions. This failure mode, known as particle impoverishment, 
+                                        is especially severe under constrained computational budgets. 
+                                        To address this, we analyze the problem and identify two root causes: a lack of diversity in the particle set due to 
+                                        overconfident resampling and consequent inability to assess the potential of a reasoning path. 
+                                        We introduce Entropic Particle Filtering (ePF), an algorithm that integrates two new techniques to solve these issues. 
+                                        <!-- The first technique, Entropic Annealing (EA), directly mitigates particle impoverishment by monitoring search diversity via entropy; 
+                                        when diversity drops, it intervenes by dynamically annealing the resampling distribution to preserve exploration. 
+                                        The second, an enhancement called Look-ahead Modulation (LaM), adds a predictive guide to evaluate a state's potential based 
+                                        on its successors. -->
+                                    </p>
+                                </td>
+                            </tr>
 
                             <tr>
                                 <td width="25%"><img src="./assets/images/svp.png" alt="blind-date" width="90%"></td>
@@ -980,7 +1017,7 @@
                                 <td width="25%"><img src="./assets/images/gm_all.png" alt="blind-date" width="90%"></td>
                                 <td width="75%" valign="top">
                                     <p>
-                                        <a href="./assets/report/tauvae.pdf" target="_blank">
+                                        <a href="https://arxiv.org/abs/1912.03845v2" target="_blank">
                                             <papertitle>Transformation-aware Variational Autoencoder
                                             </papertitle>
                                         </a>
@@ -1281,6 +1318,32 @@
                         <tbody>
 
                             <tr>
+                                <td width="25%"><img src="./assets/images/its.png" alt="blind-date"
+                                        width="100%"></td>
+                                <td width="75%" valign="top">
+                                    <p>
+                                        <a href="https://github.com/Red-Hat-AI-Innovation-Team/its_hub" target="_blank">
+                                            <papertitle>its-hub: A Python library for inference-time scaling
+                                            </papertitle>
+                                        </a>
+                                        <br>
+                                        <a href=""
+                                            target="_blank">
+                                            AI Innovation Team, Red Hat AI, 2025
+                                        </a>
+                                        <br>
+                                        <br>
+                                    </p>
+                                    <p>its_hub is a Python library for inference-time scaling of LLMs that provides 
+                                        multiple scaling algorithms (Particle Filtering, Best-of-N, Beam Search, Self-Consistency),
+                                         an OpenAI-compatible API with Inference-as-a-Service (IaaS),
+                                         Async generation with concurrency limits and error handling
+                                         and comprehensive benchmarking tools.
+                                        </p>
+                                </td>
+                            </tr>
+
+                            <tr>
                                 <td width="25%"><img src="./assets/images/gt4sd_overview.png" alt="blind-date"
                                         width="100%"></td>
                                 <td width="75%" valign="top">
@@ -1303,6 +1366,7 @@
                                         easier to use.</p>
                                 </td>
                             </tr>
+
                         </tbody>
                         <tbody>
                         </tbody>
@@ -1435,14 +1499,14 @@
                                         width="100%"></td>
                                 <td width="75%" valign="top">
                                     <p>
-                                        <a href="">
-                                            <papertitle>Method and Apparatus to Learn Generative Optimization Models
+                                        <a href="https://patents.google.com/patent/US20250292092A1/en">
+                                            <papertitle>Generative optimization models for machine learning
                                             </papertitle>
                                         </a>
                                         <br>
-                                        Giorgio Giannone, Akash Srivastava, Faez Ahmed
+                                        Inventors: <strong>Giorgio Giannone</strong> (MIT), Akash Srivastava (IBM), Faez Ahmed (MIT)
                                         <br>
-                                        <em>filing</em>, 2023
+                                        <em>US Patent US20250292092A1</em>, 2025
                                         <br>
                                     </p>
                                     <p></p>
@@ -1460,8 +1524,8 @@
                                             </papertitle>
                                         </a>
                                         <br>
-                                        Boris Chidlovskii,
-                                        Giorgio Giannone
+                                        Inventors: Boris Chidlovskii (NAVER),
+                                        <strong>Giorgio Giannone</strong> (NAVER)
                                         <br>
                                         <em>US Patent US11263756B2</em>, 2022
                                         <br>
