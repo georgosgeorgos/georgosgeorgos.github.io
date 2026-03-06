@@ -60,7 +60,7 @@ body {
 }
 
 #main-content {
-    max-width: 840px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0;
 }
@@ -83,9 +83,6 @@ a:hover {
 }
 
 body,
-td,
-th,
-tr,
 p,
 a {
     font-family: system-ui, -apple-system, sans-serif;
@@ -143,11 +140,13 @@ papertitle {
    4. SELECTED PAPERS — accent on highlighted publications
    ============================================================= */
 
-tr.paper-selected {
+.entry-row.paper-selected {
     background-color: #f2f5f1;
+    border-radius: 6px;
+    padding: 10px;
 }
 
-tr.paper-selected + tr.paper-selected td {
+.paper-selected + .paper-selected {
     border-top: 8px solid white;
 }
 
@@ -157,5 +156,165 @@ tr.paper-selected + tr.paper-selected td {
 
 span.highlight {
     background-color: #ffffd0;
+}
+
+/* =============================================================
+   6. LAYOUT — grid-based section layout (replaces tables)
+   ============================================================= */
+
+.section {
+    padding: 20px;
+}
+
+.section-heading {
+    padding: 0 0 10px 0;
+}
+
+.entry-row {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: 0 20px;
+    padding: 20px 0;
+}
+
+.entry-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.entry-img img {
+    width: 100%;
+}
+
+.entry-row.paper-selected .entry-img {
+    padding-left: 6px;
+}
+
+.entry-row.paper-selected .entry-body {
+    padding-right: 6px;
+}
+
+.entry-body {
+    padding-top: 0;
+}
+
+.about-row {
+    display: grid;
+    grid-template-columns: 65% 1fr;
+    gap: 0 20px;
+    padding: 20px;
+}
+
+.about-photo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.about-photo img {
+    width: 80%;
+    border-radius: 80px;
+    margin-top: 60px;
+}
+
+.logo-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.logo-row img {
+    width: 48px;
+}
+
+.logo-row.logo-main {
+    margin-bottom: 8px;
+}
+
+.logo-row.logo-main img {
+    width: 140px;
+}
+
+/* =============================================================
+   7. RESPONSIVE — mobile breakpoints
+   ============================================================= */
+
+@media (max-width: 768px) {
+    #main-content {
+        padding: 0 12px;
+    }
+
+    .about-row {
+        grid-template-columns: 1fr;
+        padding: 12px;
+    }
+
+    .about-photo {
+        order: -1;
+        margin-bottom: 16px;
+    }
+
+    .about-photo img {
+        width: 40%;
+        margin-top: 0;
+    }
+
+    .entry-row {
+        grid-template-columns: 1fr;
+        gap: 12px 0;
+    }
+
+    .entry-img {
+        justify-content: center;
+    }
+
+    .entry-img img {
+        width: 50%;
+        max-width: 200px;
+    }
+
+    .logo-row img {
+        min-width: 28px;
+    }
+
+    #site-nav {
+        flex-wrap: wrap;
+        padding: 8px 4px;
+    }
+
+    #site-nav a {
+        margin: 2px 6px;
+        font-size: 13px;
+    }
+
+    .nav-collapse {
+        max-width: 700px;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 12px 0;
+    }
+
+    .about-photo img {
+        width: 50%;
+    }
+
+    .entry-img img {
+        width: 70%;
+    }
+
+    name {
+        font-size: 26px;
+    }
+
+    heading {
+        font-size: 18px;
+    }
 }
 
