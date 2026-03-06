@@ -42,21 +42,27 @@
     max-width: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-width 0.4s ease, opacity 0.25s ease;
+    transition: max-width 0.4s ease 3s, opacity 0.25s ease 3s;
     white-space: nowrap;
 }
 
 .nav-group:hover .nav-collapse {
     max-width: 700px;
     opacity: 1;
+    transition: max-width 0.4s ease, opacity 0.25s ease;
 }
 
 /* =============================================================
    1. BASE — links, body, typography
    ============================================================= */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: white;
+    line-height: 1.2;
 }
 
 #main-content {
@@ -69,6 +75,10 @@ body {
     max-width: 100%;
     padding: 20px;
     text-align: right;
+}
+
+.footer-credit {
+    font-size: 12px;
 }
 
 a {
@@ -170,21 +180,35 @@ span.highlight {
     padding: 0 0 10px 0;
 }
 
+.entry-row:not(.paper-selected):hover {
+    background-color: #fafafa;
+    border-radius: 6px;
+}
+
+.logo-rounded {
+    border-radius: 20px;
+}
+
 .entry-row {
     display: grid;
     grid-template-columns: 30% 1fr;
     gap: 0 20px;
     padding: 20px 0;
+    align-items: start;
 }
 
 .entry-img {
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
+    padding: 4px;
 }
 
 .entry-img img {
     width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .entry-row.paper-selected .entry-img {
