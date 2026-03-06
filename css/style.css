@@ -1,0 +1,87 @@
+/* =============================================================
+   1. BASE — links, body, typography
+   ============================================================= */
+
+a {
+    color: #4a6741;
+    text-decoration: none;
+}
+
+a:focus,
+a:hover {
+    color: #4a6741;
+    text-decoration: none;
+}
+
+body,
+td,
+th,
+tr,
+p,
+a {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+}
+
+strong {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+}
+
+/* =============================================================
+   2. CUSTOM ELEMENTS — <name>, <heading>, <papertitle>
+   ============================================================= */
+
+name {
+    font-family: 'Ubuntu', monospace;
+    font-size: 32px;
+}
+
+heading {
+    font-family: 'Ubuntu', monospace;
+    font-size: 22px;
+}
+
+papertitle {
+    font-family: 'Ubuntu', monospace;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* =============================================================
+   3. IMAGE EFFECTS — .one, .two, .fade (paper thumbnails)
+   ============================================================= */
+
+.one {
+    width: 160px;
+    height: 160px;
+    position: relative;
+}
+
+.two {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    transition: opacity .2s ease-in-out;
+}
+
+.fade {
+    transition: opacity .2s ease-in-out;
+}
+
+/* =============================================================
+   4. UTILITIES — .highlight, .new badge
+   ============================================================= */
+
+span.highlight {
+    background-color: #ffffd0;
+}
+
+.new {
+    background-color: #cc0000;
+    color: white;
+    border-radius: 5px;
+    padding: 1px;
+    font-size: 14px;
+    margin: 0 5px;
+}
