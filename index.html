@@ -6,30 +6,26 @@
     <link href="https://fonts.cdnfonts.com/css/ubuntu-mono" rel="stylesheet">
     <link rel="icon" href="./assets/me.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
     <link rel="stylesheet" href="css/style.css">
 
     <title>Giorgio Giannone</title>
 
 </head>
 
-<body data-gr-c-s-loaded="true" style="background-color: white">
+<body data-gr-c-s-loaded="true">
     <nav id="site-nav">
         <a href="#about">About</a>
         <a href="#research">Research</a>
-        <a href="#news">News</a>
+
         <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
-        <a href="#opensource">Open-Source</a>
+        <a href="#opensource">Open-source</a>
         <a href="#datasets">Datasets</a>
         <a href="#teaching">Teaching</a>
         <a href="#patents">Patents</a>
         <a href="#theses">Theses</a>
     </nav>
-    <table width="840" border="0" align="center" cellspacing="0" cellpadding="0">
-        <tbody>
-            <tr>
-                <td>
+    <div id="main-content">
                     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
                         <tbody>
                             <tr id="about">
@@ -39,10 +35,10 @@
                                     </p>
 
                                     <p align="left">
-                                        <!-- <a href="mailto:gigi%3Cat%3Edtu%3Cdot%3Edk" target="_blank">Email</a> &nbsp;/&nbsp; -->
-                                        <!-- <a href="mailto:giorgio%3Cdot%3Ec%3Cdot%3Egiannone%3Cat%3Egmail%3Cdot%3Ecom" target="_blank">Email</a> &nbsp;/&nbsp; -->
                                         <a href="./assets/cv/giorgio_giannone_cv.pdf"
                                             target="_blank"><strong>CV</strong></a>
+                                        &nbsp;/&nbsp;
+                                        <a href="mailto:ggiorgio@mit.edu"><strong>Email</strong></a>
                                         &nbsp;/&nbsp;
                                         <a href="https://github.com/georgosgeorgos"
                                             target="_blank"><strong>GitHub</strong></a>
@@ -56,7 +52,7 @@
                                     <!-- ######## ABSTRACT #########-->
 
                                     <p>
-                                        I am a <a>Principal Research Scientist</a> on the AI Innovation Team at <a
+                                        I am a Principal Research Scientist on the AI Innovation Team at <a
                                             href="https://ai-innovation.team" target="_blank"><strong>Red
                                                 Hat</strong></a> in Boston,
                                         where I lead research on Probabilistic Inference Methods for Foundation Models.
@@ -68,7 +64,7 @@
                                             target="_blank">AgentOps</a>.
 
                                         <br><br>
-                                        I also hold an appointment as a <a>Research Affiliate</a> with the <a
+                                        I also hold an appointment as a Research Affiliate with the <a
                                             href="https://decode.mit.edu" target="_blank"><strong>DeCoDE
                                                 Lab</strong></a> at <a href="https://meche.mit.edu/"
                                             target="_blank"><strong>MIT MechE</strong></a>,
@@ -77,10 +73,8 @@
                                     </p>
 
                                     <p align="center">
-                                        <a target="_blank"><img width="0%"></a>
                                         <a href="https://www.redhat.com/en" target="_blank"><img
                                                 src="./assets/logos/Red_Hat_logo.png" alt="blind-date" width="25%"></a>
-                                        <a target="_blank"><img width="0%"></a>
                                     </p>
 
                                     <p align="center">
@@ -228,24 +222,25 @@
                         </tbody>
                     </table> -->
 
-                    <!-- NEWS -->
+                    <!-- NEWS (hidden for now)
                     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
                         <tbody>
                             <tr>
                                 <td width="100%" valign="middle">
                                     <heading id="news">News</heading>
                                     <ul>
-                                        <li>[2026] <a href="https://arxiv.org/abs/2504.09723" target="_blank">GIFT</a>: Geometric Inference Feedback Tuning for Image-to-CAD &mdash; Under Review</li>
-                                        <li>[2025] <a href="https://github.com/Red-Hat-AI-Innovation-Team/its_hub" target="_blank">its-hub</a> released &mdash; open-source Python library for inference-time scaling of LLMs</li>
-                                        <li>[2025] Paper accepted at CVPR 2025: <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Liang_Be_More_Specific_Evaluating_Object-centric_Realism_in_Synthetic_Images_CVPR_2025_paper.html" target="_blank">Be More Specific</a> (object-centric realism evaluation)</li>
-                                        <li>[2025] Patent granted: Generative optimization models for ML (<a href="https://patents.google.com/patent/US20250292092A1" target="_blank">US20250292092A1</a>)</li>
-                                        <li>[2024] Paper accepted at NeurIPS 2024: <a href="https://arxiv.org/abs/2406.00991" target="_blank">MRConv</a> (long-sequence modeling)</li>
-                                        <li>[2023] Paper accepted at ICML 2023: <a href="https://arxiv.org/abs/2301.12586" target="_blank">Unifying Molecular and Textual Representations</a></li>
+                                        <li>[2026] GIFT: Geometric Inference Feedback Tuning for Image-to-CAD &mdash; Under Review</li>
+                                        <li>[2025] its-hub released &mdash; open-source Python library for inference-time scaling of LLMs</li>
+                                        <li>[2025] Paper accepted at CVPR 2025: Be More Specific (object-centric realism evaluation)</li>
+                                        <li>[2025] Patent granted: Generative optimization models for ML (US20250292092A1)</li>
+                                        <li>[2024] Paper accepted at NeurIPS 2024: MRConv (long-sequence modeling)</li>
+                                        <li>[2023] Paper accepted at ICML 2023: Unifying Molecular and Textual Representations</li>
                                     </ul>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    -->
 
                     <!-- RESEARCH -->
                     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
@@ -294,11 +289,9 @@
                                 <td width="25%"><img src="./assets/images/gift.png" alt="blind-date" width="90%"></td>
                                 <td width="75%" valign="top">
                                     <p>
-                                        <a href="" target="_blank">
-                                            <papertitle>GIFT: Bootstrapping Image-to-CAD Program Synthesis via Geometric
-                                                Feedback
-                                            </papertitle>
-                                        </a>
+                                        <papertitle>GIFT: Bootstrapping Image-to-CAD Program Synthesis via Geometric
+                                            Feedback
+                                        </papertitle>
                                         <br>
                                         <strong>Giorgio Giannone</strong>,
                                         <a href="https://www.linkedin.com/in/annie-doris" target="_blank">Annie Clare
@@ -542,11 +535,9 @@
                                 <td width="25%"><img src="./assets/images/ndgm.png" alt="blind-date" width="90%"></td>
                                 <td width="75%" valign="top">
                                     <p>
-                                        <a href="" target="_blank">
-                                            <papertitle>Constraining Generative Models for Engineering Design with
-                                                Negative Data
-                                            </papertitle>
-                                        </a>
+                                        <papertitle>Constraining Generative Models for Engineering Design with
+                                            Negative Data
+                                        </papertitle>
                                         <br>
                                         <a href="https://scholar.google.com/citations?user=MQ9nKDsAAAAJ&hl=en"
                                             target="_blank">Lyle Regenwetter</a>,
@@ -768,7 +759,7 @@
                             </tr>
 
 
-                            <tr>
+                            <tr class="paper-selected">
                                 <td width="25%"><img src="./assets/images/mdmt-clm.png" alt="blind-date" width="90%">
                                 </td>
                                 <td width="75%" valign="top">
@@ -1269,7 +1260,7 @@
                                             </papertitle>
                                         </a>
                                         <br>
-                                        <a href="" target="_blank">
+                                        <a href="#" target="_blank">
                                             GAiA Team, 2017-2019
                                         </a>
                                         <br>
@@ -1334,7 +1325,7 @@
                                             </papertitle>
                                         </a>
                                         <br>
-                                        <a href="" target="_blank">
+                                        <a href="#" target="_blank">
                                             AI Innovation Team, Red Hat AI, 2025
                                         </a>
                                         <br>
@@ -1394,7 +1385,7 @@
                                         width="100%"></td>
                                 <td width="75%" valign="top">
                                     <p>
-                                        <a href="" target="_blank">
+                                        <a href="#" target="_blank">
                                             <papertitle>2d Topology Optimization
                                             </papertitle>
                                         </a>
@@ -1418,7 +1409,7 @@
                                         width="100%"></td>
                                 <td width="75%" valign="top">
                                     <p>
-                                        <a href="" target="_blank">
+                                        <a href="#" target="_blank">
                                             <papertitle>3d Topology Optimization
                                             </papertitle>
                                         </a>
@@ -1620,25 +1611,13 @@
                         </tbody>
                     </table>
 
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    </div>
 
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <tbody>
-            <tr>
-                <td>
-                    <br>
-                    <p align="right">
-                        <font size="2">
-                            <a href="https://people.eecs.berkeley.edu/~barron/" target="_blank">the original</a>
-                        </font>
-                    </p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="page-footer">
+        <font size="2">
+            <a href="https://people.eecs.berkeley.edu/~barron/" target="_blank">the original</a>
+        </font>
+    </div>
 
     <script defer src="js/main.js"></script>
 </body>
