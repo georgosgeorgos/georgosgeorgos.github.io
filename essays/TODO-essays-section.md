@@ -114,3 +114,19 @@ Or read title/date/author from YAML front matter in the .md file.
 - No framework, no dependencies beyond pandoc
 - GitHub Pages serves the HTML as-is
 - The old `blog/` Jekyll folder can be removed later
+
+## 9. Future Improvements
+
+### Essays section
+- [ ] Dark mode support — add `prefers-color-scheme: dark` media query
+- [ ] Reading time estimate — show "X min read" on listing page and essay header
+- [ ] Prev/Next navigation — arrow links at the bottom of each essay
+- [ ] Pandoc footnote support — support `[^1]` syntax alongside `<span class="sidenote">`
+- [ ] Mobile TOC — collapsible TOC section on mobile instead of hiding it
+- [ ] Code copy button — small "copy" button on code blocks
+- [ ] Remove Da Vinci background — cleaner look improves readability
+
+### Main site
+- [ ] Consolidate nav — group related sections (e.g., Patents + Theses)
+- [ ] Move away from table layout — use CSS grid/flexbox for maintainability and responsiveness
+- [ ] Add proper mobile layout — table-based layout doesn't work well on phones

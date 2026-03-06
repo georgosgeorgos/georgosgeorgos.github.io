@@ -7,15 +7,18 @@
     top: 0;
     background: white;
     border-bottom: 1px solid #e0e0e0;
-    padding: 8px 0;
-    text-align: center;
+    padding: 12px 0;
     z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #site-nav a {
     margin: 0 10px;
     font-family: 'Ubuntu', monospace;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: normal;
     color: #4a6741;
 }
 
@@ -24,9 +27,28 @@
 }
 
 #site-nav .nav-divider {
-    margin: 0 4px;
+    margin: 0 10px;
     color: #ccc;
-    font-size: 13px;
+    font-size: 14px;
+}
+
+.nav-group {
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-collapse {
+    display: inline-flex;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-width 0.4s ease, opacity 0.25s ease;
+    white-space: nowrap;
+}
+
+.nav-group:hover .nav-collapse {
+    max-width: 700px;
+    opacity: 1;
 }
 
 /* =============================================================

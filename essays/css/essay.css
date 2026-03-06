@@ -8,15 +8,18 @@
     top: 0;
     background: white;
     border-bottom: 1px solid #e0e0e0;
-    padding: 8px 0;
-    text-align: center;
+    padding: 12px 0;
     z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .essay-nav a {
     margin: 0 10px;
     font-family: 'Ubuntu', monospace;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: normal;
     color: #4a6741;
     text-decoration: none;
 }
@@ -26,9 +29,9 @@
 }
 
 .essay-nav .nav-divider {
-    margin: 0 4px;
+    margin: 0 10px;
     color: #ccc;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 /* =============================================================
