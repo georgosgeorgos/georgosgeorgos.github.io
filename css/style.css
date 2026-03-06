@@ -1,4 +1,28 @@
 /* =============================================================
+   NAV — sticky section navigation
+   ============================================================= */
+
+#site-nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 8px 0;
+    text-align: center;
+    z-index: 100;
+}
+
+#site-nav a {
+    margin: 0 10px;
+    font-size: 13px;
+    color: #4a6741;
+}
+
+#site-nav a:hover {
+    text-decoration: underline;
+}
+
+/* =============================================================
    1. BASE — links, body, typography
    ============================================================= */
 
@@ -70,7 +94,35 @@ papertitle {
 }
 
 /* =============================================================
-   4. UTILITIES — .highlight, .new badge
+   4. ABSTRACTS — collapsible abstract toggle
+   ============================================================= */
+
+.abstract {
+    display: none;
+    margin-top: 4px;
+}
+
+.abstract-toggle {
+    cursor: pointer;
+    color: #4a6741;
+    font-size: 12px;
+    user-select: none;
+}
+
+.abstract-toggle:hover {
+    text-decoration: underline;
+}
+
+/* =============================================================
+   5. SELECTED PAPERS — accent on highlighted publications
+   ============================================================= */
+
+tr.paper-selected > td:first-child {
+    border-left: 3px solid #4a6741;
+}
+
+/* =============================================================
+   6. UTILITIES — .highlight, .new badge
    ============================================================= */
 
 span.highlight {

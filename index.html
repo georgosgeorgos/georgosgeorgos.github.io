@@ -14,13 +14,25 @@
 </head>
 
 <body data-gr-c-s-loaded="true" style="background-color: white">
+    <nav id="site-nav">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#opensource">Open-Source</a>
+        <a href="#datasets">Datasets</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#patents">Patents</a>
+        <a href="#theses">Theses</a>
+    </nav>
     <table width="840" border="0" align="center" cellspacing="0" cellpadding="0">
         <tbody>
             <tr>
                 <td>
                     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
                         <tbody>
-                            <tr>
+                            <tr id="about">
                                 <td width="65%" valign="middle">
                                     <p align="left">
                                         <name>Giorgio Giannone</name>
@@ -216,6 +228,25 @@
                         </tbody>
                     </table> -->
 
+                    <!-- NEWS -->
+                    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+                        <tbody>
+                            <tr>
+                                <td width="100%" valign="middle">
+                                    <heading id="news">News</heading>
+                                    <ul>
+                                        <li>[2026] <a href="https://arxiv.org/abs/2504.09723" target="_blank">GIFT</a>: Geometric Inference Feedback Tuning for Image-to-CAD &mdash; Under Review</li>
+                                        <li>[2025] <a href="https://github.com/Red-Hat-AI-Innovation-Team/its_hub" target="_blank">its-hub</a> released &mdash; open-source Python library for inference-time scaling of LLMs</li>
+                                        <li>[2025] Paper accepted at CVPR 2025: <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Liang_Be_More_Specific_Evaluating_Object-centric_Realism_in_Synthetic_Images_CVPR_2025_paper.html" target="_blank">Be More Specific</a> (object-centric realism evaluation)</li>
+                                        <li>[2025] Patent granted: Generative optimization models for ML (<a href="https://patents.google.com/patent/US20250292092A1" target="_blank">US20250292092A1</a>)</li>
+                                        <li>[2024] Paper accepted at NeurIPS 2024: <a href="https://arxiv.org/abs/2406.00991" target="_blank">MRConv</a> (long-sequence modeling)</li>
+                                        <li>[2023] Paper accepted at ICML 2023: <a href="https://arxiv.org/abs/2301.12586" target="_blank">Unifying Molecular and Textual Representations</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                     <!-- RESEARCH -->
                     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
                         <tbody>
@@ -250,7 +281,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <heading>Publications</heading>
+                                    <heading id="publications">Publications</heading>
                                 </td>
 
                             </tr>
@@ -298,7 +329,7 @@
                                 </td>
                             </tr>
 
-                            <tr>
+                            <tr class="paper-selected">
                                 <td width="25%"><img src="./assets/images/epf.png" alt="blind-date" width="90%"></td>
                                 <td width="75%" valign="top">
                                     <p>
@@ -347,7 +378,7 @@
                                 </td>
                             </tr>
 
-                            <tr>
+                            <tr class="paper-selected">
                                 <td width="25%"><img src="./assets/images/svp.png" alt="blind-date" width="90%"></td>
                                 <td width="75%" valign="top">
                                     <p>
@@ -586,7 +617,7 @@
                                 </td>
                             </tr>
 
-                            <tr>
+                            <tr class="paper-selected">
                                 <td width="25%"><img src="./assets/images/ta.png" alt="blind-date" width="90%"></td>
                                 <td width="75%" valign="top">
                                     <p>
@@ -1126,7 +1157,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <heading>Applied Projects</heading>
+                                    <heading id="applied-projects">Applied Projects</heading>
                                 </td>
 
                             </tr>
@@ -1189,7 +1220,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <heading>Projects</heading>
+                                    <heading id="projects">Projects</heading>
                                 </td>
                             </tr>
                         </tbody>
@@ -1288,7 +1319,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <heading>Open-source</heading>
+                                    <heading id="opensource">Open-source</heading>
                                 </td>
                             </tr>
                         </tbody>
@@ -1352,7 +1383,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <heading>Datasets</heading>
+                                    <heading id="datasets">Datasets</heading>
                                 </td>
                             </tr>
                         </tbody>
@@ -1411,7 +1442,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <heading>Teaching</heading>
+                                    <heading id="teaching">Teaching</heading>
                                 </td>
                             </tr>
                         </tbody>
@@ -1464,7 +1495,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <heading>Patents</heading>
+                                    <heading id="patents">Patents</heading>
                                 </td>
                             </tr>
                         </tbody>
@@ -1520,7 +1551,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <heading>Theses</heading>
+                                    <heading id="theses">Theses</heading>
                                 </td>
 
                             </tr>
@@ -1609,6 +1640,7 @@
         </tbody>
     </table>
 
+    <script defer src="js/main.js"></script>
 </body>
 
 </html>
