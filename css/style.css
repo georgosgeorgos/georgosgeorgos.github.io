@@ -5,7 +5,7 @@
 #site-nav {
     position: sticky;
     top: 0;
-    background: #faf8f3;
+    background: white;
     border-bottom: 1px solid #e0e0e0;
     padding: 8px 0;
     text-align: center;
@@ -28,15 +28,13 @@
    ============================================================= */
 
 body {
-    background-color: #e8e4dc;
+    background-color: white;
 }
 
 #main-content {
     max-width: 840px;
     margin: 0 auto;
-    padding: 40px 60px;
-    background: #faf8f3;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    padding: 0;
 }
 
 #page-footer {
@@ -62,18 +60,13 @@ th,
 tr,
 p,
 a {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: system-ui, -apple-system, sans-serif;
     font-size: 14px;
 }
 
 strong {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: system-ui, -apple-system, sans-serif;
     font-size: 14px;
-}
-
-p {
-    line-height: 1.7;
-    text-align: justify;
 }
 
 /* =============================================================
@@ -127,7 +120,7 @@ tr.paper-selected {
 }
 
 tr.paper-selected + tr.paper-selected td {
-    border-top: 8px solid #faf8f3;
+    border-top: 8px solid white;
 }
 
 /* =============================================================
