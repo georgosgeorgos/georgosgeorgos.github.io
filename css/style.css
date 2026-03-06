@@ -94,35 +94,15 @@ papertitle {
 }
 
 /* =============================================================
-   4. ABSTRACTS — collapsible abstract toggle
+   4. SELECTED PAPERS — accent on highlighted publications
    ============================================================= */
 
-.abstract {
-    display: none;
-    margin-top: 4px;
-}
-
-.abstract-toggle {
-    cursor: pointer;
-    color: #4a6741;
-    font-size: 12px;
-    user-select: none;
-}
-
-.abstract-toggle:hover {
-    text-decoration: underline;
+tr.paper-selected {
+    background-color: #f2f5f1;
 }
 
 /* =============================================================
-   5. SELECTED PAPERS — accent on highlighted publications
-   ============================================================= */
-
-tr.paper-selected > td:first-child {
-    border-left: 3px solid #4a6741;
-}
-
-/* =============================================================
-   6. UTILITIES — .highlight, .new badge
+   5. UTILITIES — .highlight, .new badge
    ============================================================= */
 
 span.highlight {
