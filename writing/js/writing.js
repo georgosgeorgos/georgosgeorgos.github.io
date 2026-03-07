@@ -17,6 +17,17 @@ document.addEventListener("DOMContentLoaded", function() {
         tocNav.appendChild(ul);
     }
 
+    // --- Smooth scroll TOC links ---
+    tocNav && tocNav.addEventListener("click", function(e) {
+        var link = e.target.closest("a");
+        if (!link) return;
+        var target = document.querySelector(link.getAttribute("href"));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+
     // --- Highlight current TOC entry on scroll ---
     var tocLinks = tocNav ? tocNav.querySelectorAll("a") : [];
     if (tocLinks.length > 0) {

@@ -7,10 +7,10 @@
     top: 0;
     background: white;
     border-bottom: 1px solid #e0e0e0;
-    padding: 12px 0;
+    padding: 12px 24px;
     z-index: 100;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -186,7 +186,7 @@ span.highlight {
 }
 
 .logo-rounded {
-    border-radius: 20px;
+    border-radius: 6px;
 }
 
 .entry-row {
@@ -195,6 +195,10 @@ span.highlight {
     gap: 0 20px;
     padding: 20px 0;
     align-items: start;
+}
+
+.section-narrow-img .entry-row {
+    grid-template-columns: 25% 1fr;
 }
 
 .entry-img {
@@ -225,7 +229,7 @@ span.highlight {
 
 .about-row {
     display: grid;
-    grid-template-columns: 65% 1fr;
+    grid-template-columns: 70% 1fr;
     gap: 0 20px;
     padding: 20px;
 }
@@ -237,8 +241,8 @@ span.highlight {
 }
 
 .about-photo img {
-    width: 80%;
-    border-radius: 80px;
+    width: 70%;
+    border-radius: 6px;
     margin-top: 60px;
 }
 
