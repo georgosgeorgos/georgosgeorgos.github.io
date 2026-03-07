@@ -34,6 +34,27 @@
     font-size: 14px;
 }
 
+.essay-nav .nav-group {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.essay-nav .nav-collapse {
+    display: inline-flex;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-width 0.4s ease 3s, opacity 0.25s ease 3s;
+    white-space: nowrap;
+}
+
+.essay-nav .nav-group:hover .nav-collapse {
+    max-width: 400px;
+    opacity: 1;
+    transition: max-width 0.4s ease, opacity 0.25s ease;
+}
+
 /* =============================================================
    EPIGRAPH — random quote below nav
    ============================================================= */
@@ -443,6 +464,15 @@ hr {
     color: #444;
     font-size: 16px;
     margin: 0;
+}
+
+.tag {
+    font-family: 'Ubuntu', monospace;
+    font-size: 12px;
+    color: #4a6741;
+    background: #f0f5ee;
+    padding: 1px 8px;
+    border-radius: 3px;
 }
 
 .essay-list {

@@ -1,7 +1,7 @@
 ---
 title: "A Sample Essay: Demonstrating All Features"
-author: "Giorgio Giannone"
-date: "2026-03-06"
+date: "Mar 6, 2026"
+category: "essay"
 ---
 
 This is a sample essay to demonstrate the essays section. It exercises every feature supported by the pandoc template, including the three-column layout with table of contents and sidenotes.

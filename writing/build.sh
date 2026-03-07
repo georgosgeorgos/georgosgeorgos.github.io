@@ -1,7 +1,7 @@
 #!/bin/bash
 # Build an essay from Markdown to HTML using pandoc.
-# Usage: ./build.sh <essay-folder>
-# Example: ./build.sh sample-essay
+# Usage: ./build.sh <category/folder>
+# Example: ./build.sh essays/sample-essay
 
 set -e
 
@@ -9,8 +9,8 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ESSAY_DIR="$SCRIPT_DIR/$1"
 
 if [ -z "$1" ] || [ ! -d "$ESSAY_DIR" ]; then
-    echo "Usage: ./build.sh <essay-folder>"
-    echo "Example: ./build.sh sample-essay"
+    echo "Usage: ./build.sh <category/folder>"
+    echo "Example: ./build.sh essays/sample-essay"
     exit 1
 fi
 
