@@ -1,0 +1,37 @@
+#!/bin/bash
+# Pre-commit hook: rebuild any changed writing content (essays, notes, predictions)
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+WRITING_DIR="$REPO_ROOT/writing"
+REBUILT=0
+
+# Find staged essay.md files across all writing categories
+for md_file in $(git diff --cached --name-only --diff-filter=ACM | grep '^writing/.*/essay\.md$'); do
+    # e.g. writing/essays/sample-essay/essay.md -> essays/sample-essay
+    relative="${md_file#writing/}"
+    folder="${relative%/essay.md}"
+
+    echo "Rebuilding: $folder"
+    "$WRITING_DIR/build.sh" "$folder"
+    git add "$WRITING_DIR/$folder/index.html"
+    REBUILT=$((REBUILT + 1))
+done
+
+# Also rebuild if the template changed
+if git diff --cached --name-only | grep -q '^writing/template\.html$'; then
+    echo "Template changed — rebuilding all essays..."
+    for md_file in $(find "$WRITING_DIR" -name "essay.md" -type f); do
+        # e.g. /path/writing/notes/my-note/essay.md -> notes/my-note
+        relative="${md_file#$WRITING_DIR/}"
+        folder="${relative%/essay.md}"
+
+        echo "Rebuilding: $folder"
+        "$WRITING_DIR/build.sh" "$folder"
+        git add "$WRITING_DIR/$folder/index.html"
+        REBUILT=$((REBUILT + 1))
+    done
+fi
+
+if [ $REBUILT -gt 0 ]; then
+    echo "Rebuilt $REBUILT writing page(s)."
+fi

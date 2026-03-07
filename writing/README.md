@@ -31,6 +31,16 @@ essays/
 
 - [pandoc](https://pandoc.org/) (`brew install pandoc`)
 
+## Setup
+
+After cloning, run once to enable the pre-commit hook:
+
+```bash
+git config core.hooksPath hooks/
+```
+
+This configures git to use the tracked `hooks/` directory. The pre-commit hook automatically rebuilds any changed essay HTML (via `build.sh`) and stages the result before each commit.
+
 ## Features
 
 - Self-hosted KaTeX for math rendering (inline `$...$` and display `$$...$$`)
