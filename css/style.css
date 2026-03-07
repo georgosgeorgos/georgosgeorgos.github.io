@@ -1,0 +1,348 @@
+/* =============================================================
+   NAV — sticky section navigation
+   ============================================================= */
+
+#site-nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 12px 24px;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#site-nav a {
+    margin: 0 10px;
+    font-family: 'Ubuntu', monospace;
+    font-size: 14px;
+    font-weight: normal;
+    color: #4a6741;
+}
+
+#site-nav a:hover {
+    text-decoration: underline;
+}
+
+#site-nav .nav-divider {
+    margin: 0 10px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.nav-group {
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-collapse {
+    display: inline-flex;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-width 0.4s ease 3s, opacity 0.25s ease 3s;
+    white-space: nowrap;
+}
+
+.nav-group:hover .nav-collapse {
+    max-width: 700px;
+    opacity: 1;
+    transition: max-width 0.4s ease, opacity 0.25s ease;
+}
+
+/* =============================================================
+   1. BASE — links, body, typography
+   ============================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: white;
+    line-height: 1.2;
+}
+
+#main-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#page-footer {
+    max-width: 100%;
+    padding: 20px;
+    text-align: right;
+}
+
+.footer-credit {
+    font-size: 12px;
+}
+
+a {
+    color: #4a6741;
+    text-decoration: none;
+}
+
+a:focus,
+a:hover {
+    color: #4a6741;
+    text-decoration: none;
+}
+
+body,
+p,
+a {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+}
+
+strong {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+}
+
+/* =============================================================
+   2. CUSTOM ELEMENTS — <name>, <heading>, <papertitle>
+   ============================================================= */
+
+name {
+    font-family: 'Ubuntu', monospace;
+    font-size: 32px;
+}
+
+heading {
+    font-family: 'Ubuntu', monospace;
+    font-size: 22px;
+    color: #4a6741;
+}
+
+papertitle {
+    font-family: 'Ubuntu', monospace;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* =============================================================
+   3. IMAGE EFFECTS — .one, .two, .fade (paper thumbnails)
+   ============================================================= */
+
+.one {
+    width: 160px;
+    height: 160px;
+    position: relative;
+}
+
+.two {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    transition: opacity .2s ease-in-out;
+}
+
+.fade {
+    transition: opacity .2s ease-in-out;
+}
+
+/* =============================================================
+   4. SELECTED PAPERS — accent on highlighted publications
+   ============================================================= */
+
+.entry-row.paper-selected {
+    background-color: #f2f5f1;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.paper-selected + .paper-selected {
+    border-top: 8px solid white;
+}
+
+/* =============================================================
+   5. UTILITIES — .highlight, .new badge
+   ============================================================= */
+
+span.highlight {
+    background-color: #ffffd0;
+}
+
+/* =============================================================
+   6. LAYOUT — grid-based section layout (replaces tables)
+   ============================================================= */
+
+.section {
+    padding: 20px;
+}
+
+.section-heading {
+    padding: 0 0 10px 0;
+}
+
+.entry-row:not(.paper-selected):hover {
+    background-color: #fafafa;
+    border-radius: 6px;
+}
+
+.logo-rounded {
+    border-radius: 6px;
+}
+
+.entry-row {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: 0 20px;
+    padding: 20px 0;
+    align-items: start;
+}
+
+.section-narrow-img .entry-row {
+    grid-template-columns: 25% 1fr;
+}
+
+.entry-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    padding: 4px;
+}
+
+.entry-img img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.entry-row.paper-selected .entry-img {
+    padding-left: 6px;
+}
+
+.entry-row.paper-selected .entry-body {
+    padding-right: 6px;
+}
+
+.entry-body {
+    padding-top: 0;
+}
+
+.about-row {
+    display: grid;
+    grid-template-columns: 70% 1fr;
+    gap: 0 20px;
+    padding: 20px;
+}
+
+.about-photo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.about-photo img {
+    width: 70%;
+    border-radius: 6px;
+    margin-top: 60px;
+}
+
+.logo-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.logo-row img {
+    width: 48px;
+}
+
+.logo-row.logo-main {
+    margin-bottom: 8px;
+}
+
+.logo-row.logo-main img {
+    width: 140px;
+}
+
+/* =============================================================
+   7. RESPONSIVE — mobile breakpoints
+   ============================================================= */
+
+@media (max-width: 768px) {
+    #main-content {
+        padding: 0 12px;
+    }
+
+    .about-row {
+        grid-template-columns: 1fr;
+        padding: 12px;
+    }
+
+    .about-photo {
+        order: -1;
+        margin-bottom: 16px;
+    }
+
+    .about-photo img {
+        width: 40%;
+        margin-top: 0;
+    }
+
+    .entry-row {
+        grid-template-columns: 1fr;
+        gap: 12px 0;
+    }
+
+    .entry-img {
+        justify-content: center;
+    }
+
+    .entry-img img {
+        width: 50%;
+        max-width: 200px;
+    }
+
+    .logo-row img {
+        min-width: 28px;
+    }
+
+    #site-nav {
+        flex-wrap: wrap;
+        padding: 8px 4px;
+    }
+
+    #site-nav a {
+        margin: 2px 6px;
+        font-size: 13px;
+    }
+
+    .nav-collapse {
+        max-width: 700px;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 12px 0;
+    }
+
+    .about-photo img {
+        width: 50%;
+    }
+
+    .entry-img img {
+        width: 70%;
+    }
+
+    name {
+        font-size: 26px;
+    }
+
+    heading {
+        font-size: 18px;
+    }
+}
+

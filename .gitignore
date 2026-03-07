@@ -1,1 +1,24 @@
+# OS files
 *.DS_Store
+Thumbs.db
+
+# Editor/IDE
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+Gemfile.lock
+
+# Node (if used for tooling)
+node_modules/
+
+# Logs
+*.log

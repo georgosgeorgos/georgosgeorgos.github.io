@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Writing — Giorgio Giannone</title>
+    <link href="https://fonts.cdnfonts.com/css/ubuntu-mono" rel="stylesheet">
+    <link rel="icon" href="../assets/me.png">
+    <link rel="stylesheet" href="css/writing.css">
+</head>
+<body>
+    <nav class="essay-nav">
+        <a href="../index.html">About</a>
+        <span class="nav-divider">|</span>
+        <span class="nav-group">
+            <a href="#" data-filter="all">Writing</a>
+            <span class="nav-collapse">
+                <a href="#" data-filter="essay">Essays</a>
+                <a href="#" data-filter="note">Notes</a>
+                <a href="#" data-filter="prediction">Predictions</a>
+            </span>
+        </span>
+    </nav>
+
+    <div id="epigraph"></div>
+
+    <div class="listing-container">
+        <div class="listing-header">
+            <h1>Amortized Intuition</h1>
+            <!-- <h1>Distilled Cognition</h1> -->
+            <p>Notes on machine learning, inference, and related topics.</p>
+        </div>
+        <ul class="essay-list">
+            <li data-category="essay">
+                <span class="title"><a href="essays/sample-essay/index.html">A Sample Essay: Demonstrating All Features</a></span>
+                <span class="attribution">Mar 6, 2026 · <span class="tag">essay</span></span>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+    function filterItems(filter) {
+        document.querySelectorAll('.essay-list li').forEach(function(li) {
+            li.style.display = (filter === 'all' || li.getAttribute('data-category') === filter) ? '' : 'none';
+        });
+    }
+    document.querySelectorAll('[data-filter]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            filterItems(this.getAttribute('data-filter'));
+        });
+    });
+    var param = new URLSearchParams(window.location.search).get('filter');
+    if (param) filterItems(param);
+    </script>
+
+    <script>
+    fetch('quotes.jsonl')
+        .then(function(r) { return r.text(); })
+        .then(function(text) {
+            var quotes = text.trim().split('\n').map(JSON.parse);
+            var q = quotes[Math.floor(Math.random() * quotes.length)];
+            var el = document.getElementById('epigraph');
+            if (el) {
+                el.innerHTML = '\u201c' + q.text + '\u201d<span class="epigraph-author"> \u2014 ' + q.author + '</span>';
+            }
+        });
+    </script>
+</body>
+</html>
