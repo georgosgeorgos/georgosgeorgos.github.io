@@ -1337,6 +1337,10 @@
     </div>
 
     <script defer src="js/main.js"></script>
+    <script>
+    if (location.protocol !== 'file:' && location.pathname.endsWith('/index.html'))
+        history.replaceState(null, '', location.pathname.slice(0, -10) + location.search + location.hash);
+    </script>
 </body>
 
 </html>

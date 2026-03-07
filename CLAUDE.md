@@ -41,3 +41,4 @@ Personal academic website for Giorgio Giannone — static HTML/CSS/JS site hoste
 - Publications are organized as "Selected" and "All" with paper images, links, and metadata
 - No JavaScript frameworks — vanilla HTML/CSS/JS only
 - Keep changes minimal and avoid over-engineering
+- Commit after each relevant update
