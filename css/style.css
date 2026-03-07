@@ -108,21 +108,30 @@ strong {
    2. CUSTOM ELEMENTS — <name>, <heading>, <papertitle>
    ============================================================= */
 
-name {
+h1.name, h2.heading, h3.papertitle {
+    margin: 0;
+    padding: 0;
+}
+
+h1.name {
     font-family: 'Ubuntu', monospace;
     font-size: 32px;
+    font-weight: normal;
 }
 
-heading {
+h2.heading {
     font-family: 'Ubuntu', monospace;
     font-size: 22px;
+    font-weight: normal;
     color: #4a6741;
+    display: inline;
 }
 
-papertitle {
+h3.papertitle {
     font-family: 'Ubuntu', monospace;
     font-size: 14px;
     font-weight: 700;
+    display: inline;
 }
 
 /* =============================================================
@@ -186,13 +195,13 @@ span.highlight {
     display: none;
 }
 
-.section-heading heading::before {
+.section-heading .heading::before {
     content: '− ';
     font-size: 16px;
     color: #4a6741;
 }
 
-details.section:not([open]) .section-heading heading::before {
+details.section:not([open]) .section-heading .heading::before {
     content: '+ ';
 }
 
@@ -378,11 +387,11 @@ details.section:not([open]) .section-heading heading::before {
         width: 70%;
     }
 
-    name {
+    h1.name {
         font-size: 26px;
     }
 
-    heading {
+    h2.heading {
         font-size: 18px;
     }
 }
