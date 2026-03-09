@@ -1,9 +1,21 @@
+// Hamburger menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const siteNav = document.getElementById('site-nav');
+
+navToggle.addEventListener('click', () => {
+    const open = siteNav.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', open);
+});
+
 // Smooth scroll for nav links — offset for sticky nav height
 document.querySelectorAll('#site-nav a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
         const target = document.querySelector(link.getAttribute('href'));
         if (target) {
             e.preventDefault();
+            // Close mobile menu
+            siteNav.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
             const details = target.closest('details');
             if (details && !details.open) details.open = true;
             const nav = document.getElementById('site-nav');
