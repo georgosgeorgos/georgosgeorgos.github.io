@@ -2,11 +2,50 @@
    ESSAYS — three-column layout: TOC | Content | Sidenotes
    ============================================================= */
 
+/* --- FONT SWITCHER (commented out) ---
+.font-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 252, 241, 0.97);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px 16px;
+    z-index: 999;
+    font-size: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.font-switcher label {
+    display: block;
+    margin-bottom: 6px;
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+.font-switcher label:hover {
+    background: #f0edd8;
+}
+
+.font-switcher input[type="radio"] {
+    margin-right: 8px;
+}
+
+.font-switcher .switcher-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #4a6741;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 6px;
+}
+*/
+
 /* --- NAV (matches main site) --- */
 .essay-nav {
     position: sticky;
     top: 0;
-    background: white;
+    background: rgb(255, 252, 241);
     border-bottom: 1px solid #e0e0e0;
     padding: 12px 24px;
     z-index: 100;
@@ -15,9 +54,34 @@
     align-items: center;
 }
 
+.essay-nav .nav-title {
+    margin-right: auto;
+    font-family: 'Iowan Old Style BT', 'Iowan Old Style', Georgia, serif;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.essay-nav .nav-title strong {
+    font-size: 20px;
+    color: #1a1a1a;
+    white-space: nowrap;
+}
+
+.essay-nav .nav-subtitle {
+    font-size: 13px;
+    color: #888;
+    font-weight: normal;
+}
+
+.essay-nav .nav-links {
+    display: flex;
+    align-items: center;
+}
+
 .essay-nav a {
     margin: 0 10px;
-    font-family: 'Ubuntu', monospace;
+    font-family: 'Iowan Old Style BT', 'Iowan Old Style', Georgia, serif;
     font-size: 14px;
     font-weight: normal;
     color: #4a6741;
@@ -119,7 +183,7 @@
 }
 
 .essay-toc a {
-    font-family: 'Ubuntu', monospace;
+    font-family: 'Iowan Old Style BT', 'Iowan Old Style', Georgia, serif;
     font-size: 12px;
     color: #999;
     text-decoration: none;
@@ -151,11 +215,11 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-    font-size: 18px;
-    line-height: 1.75;
+    font-family: 'Iowan Old Style BT', 'Iowan Old Style', Georgia, serif;
+    font-size: 20px;
+    line-height: 1.8;
     color: #1a1a1a;
-    background: white;
+    background: rgb(255, 252, 241);
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -187,7 +251,7 @@ a:hover {
 }
 
 .essay-header h1 {
-    font-family: 'Ubuntu', monospace;
+    font-family: inherit;
     font-size: 36px;
     font-weight: 700;
     line-height: 1.2;
@@ -212,7 +276,7 @@ a:hover {
 
 /* --- HEADINGS --- */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Ubuntu', monospace;
+    font-family: inherit;
     font-weight: 600;
     scroll-margin-top: 60px;
     line-height: 1.3;
@@ -276,6 +340,30 @@ div.sourceCode {
     margin: 1.8em 0;
 }
 
+/* Pandoc syntax highlighting */
+code span.kw { color: #5a5a8f; }              /* Keyword */
+code span.cf { color: #5a5a8f; }              /* ControlFlow */
+code span.dt { color: #4a6741; }              /* DataType */
+code span.dv { color: #8a6340; }              /* DecVal (integers) */
+code span.bn { color: #8a6340; }              /* BaseN */
+code span.fl { color: #8a6340; }              /* Float */
+code span.ch { color: #6a7e40; }              /* Char */
+code span.st { color: #6a7e40; }              /* String */
+code span.co { color: #8a8a8a; font-style: italic; } /* Comment */
+code span.fu { color: #3d6b6b; }              /* Function */
+code span.bu { color: #3d6b6b; }              /* BuiltIn */
+code span.op { color: #555; }                 /* Operator */
+code span.al { color: #9e3030; font-weight: bold; }  /* Alert */
+code span.er { color: #9e3030; }              /* Error */
+code span.im { color: #5a5a8f; }              /* Import */
+code span.va { color: #7a5050; }              /* Variable */
+code span.ss { color: #6a7e40; }              /* SpecialString */
+code span.at { color: #8a6340; }              /* Attribute */
+code span.do { color: #8a8a8a; font-style: italic; } /* Documentation */
+code span.an { color: #8a8a8a; font-weight: bold; }  /* Annotation */
+code span.pp { color: #5a5a8f; }              /* Preprocessor */
+code span.ot { color: #3d6b6b; }              /* Other */
+
 /* --- BLOCKQUOTES --- */
 blockquote {
     border-left: 3px solid #4a6741;
@@ -310,7 +398,7 @@ thead {
 }
 
 th {
-    font-family: 'Ubuntu', monospace;
+    font-family: inherit;
     font-weight: 600;
     font-size: 13px;
     text-transform: uppercase;
@@ -376,7 +464,7 @@ hr {
     margin-top: 80px;
     padding-top: 24px;
     border-top: 1px solid #e0e0e0;
-    font-family: 'Ubuntu', monospace;
+    font-family: 'Iowan Old Style BT', 'Iowan Old Style', Georgia, serif;
     font-size: 14px;
     color: #555;
 }
@@ -451,24 +539,27 @@ hr {
 
 .listing-header {
     margin-bottom: 48px;
+    text-align: left;
 }
 
 .listing-header h1 {
-    font-family: 'Ubuntu', monospace;
+    font-family: inherit;
     font-size: 36px;
     font-weight: 700;
     margin: 0 0 8px;
     letter-spacing: -0.5px;
+    text-align: left;
 }
 
 .listing-header p {
     color: #444;
     font-size: 16px;
     margin: 0;
+    text-align: left;
 }
 
 .tag {
-    font-family: 'Ubuntu', monospace;
+    font-family: 'Iowan Old Style BT', 'Iowan Old Style', Georgia, serif;
     font-size: 12px;
     color: #4a6741;
     background: #f0f5ee;
@@ -491,7 +582,7 @@ hr {
 }
 
 .essay-list .title a {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: inherit;
     font-size: 17px;
     font-weight: 500;
     color: #1a1a1a;
@@ -573,4 +664,5 @@ hr {
     pre code {
         font-size: 13px;
     }
+
 }

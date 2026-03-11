@@ -63,12 +63,29 @@ html {
 body {
     background-color: white;
     line-height: 1.2;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/davinci.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
 }
 
 #main-content {
     max-width: 960px;
     margin: 0 auto;
     padding: 0;
+    position: relative;
+    z-index: 1;
 }
 
 #page-footer {

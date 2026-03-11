@@ -10,14 +10,20 @@
 </head>
 <body>
     <nav class="essay-nav">
-        <a href="../index.html">About</a>
-        <span class="nav-divider">|</span>
-        <span class="nav-group">
-            <a href="#" data-filter="all">Writing</a>
-            <span class="nav-collapse">
-                <a href="#" data-filter="essay">Essays</a>
-                <a href="#" data-filter="note">Notes</a>
-                <a href="#" data-filter="prediction">Predictions</a>
+        <span class="nav-title">
+            <strong>Amortized Intuition</strong>
+            <span class="nav-subtitle">Notes on machine learning, inference, and related topics.</span>
+        </span>
+        <span class="nav-links">
+            <a href="../index.html">About</a>
+            <span class="nav-divider">|</span>
+            <span class="nav-group">
+                <a href="#" data-filter="all">Writing</a>
+                <span class="nav-collapse">
+                    <a href="#" data-filter="essay">Essays</a>
+                    <a href="#" data-filter="note">Notes</a>
+                    <a href="#" data-filter="prediction">Predictions</a>
+                </span>
             </span>
         </span>
     </nav>
@@ -25,11 +31,6 @@
     <div id="epigraph"></div>
 
     <div class="listing-container">
-        <div class="listing-header">
-            <h1>Amortized Intuition</h1>
-            <!-- <h1>Distilled Cognition</h1> -->
-            <p>Notes on machine learning, inference, and related topics.</p>
-        </div>
         <ul class="essay-list">
             <li data-category="essay">
                 <span class="title"><a href="essays/sample-essay/index.html">A Sample Essay: Demonstrating All Features</a></span>
@@ -37,6 +38,26 @@
             </li>
         </ul>
     </div>
+
+    <!-- Font Switcher (commented out — using Iowan Old Style)
+    <div class="font-switcher">
+        <div class="switcher-title">Body Font</div>
+        <label><input type="radio" name="font" value="'EB Garamond', serif" checked> EB Garamond</label>
+        <label><input type="radio" name="font" value="'Crimson Text', serif"> Crimson Text</label>
+        <label><input type="radio" name="font" value="'Lora', serif"> Lora</label>
+        <label><input type="radio" name="font" value="'Libre Baskerville', serif"> Libre Baskerville</label>
+        <label><input type="radio" name="font" value="'Cormorant Garamond', serif"> Cormorant Garamond</label>
+        <label><input type="radio" name="font" value="'Iowan Old Style BT', 'Iowan Old Style', Georgia, serif"> Iowan Old Style</label>
+        <label><input type="radio" name="font" value="'Inter', sans-serif"> Inter</label>
+    </div>
+    <script>
+    document.querySelectorAll('.font-switcher input[name="font"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.body.style.fontFamily = this.value;
+        });
+    });
+    </script>
+    -->
 
     <script>
     function filterItems(filter) {
