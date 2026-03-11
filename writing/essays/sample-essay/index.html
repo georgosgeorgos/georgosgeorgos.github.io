@@ -12,14 +12,19 @@ Features — Amortized Intuition</title>
 </head>
 <body>
     <nav class="essay-nav">
-        <a href="../../../index.html">About</a>
-        <span class="nav-divider">|</span>
-        <span class="nav-group">
-            <a href="../../index.html">Writing</a>
-            <span class="nav-collapse">
-                <a href="../../index.html?filter=essay">Essays</a>
-                <a href="../../index.html?filter=note">Notes</a>
-                <a href="../../index.html?filter=prediction">Predictions</a>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <span class="nav-links">
+            <a href="../../../index.html">About</a>
+            <span class="nav-divider">|</span>
+            <span class="nav-group">
+                <a href="../../index.html">Writing</a>
+                <span class="nav-collapse">
+                    <a href="../../index.html?filter=essay">Essays</a>
+                    <a href="../../index.html?filter=note">Notes</a>
+                    <a href="../../index.html?filter=prediction">Predictions</a>
+                </span>
             </span>
         </span>
     </nav>
@@ -170,6 +175,17 @@ Features — Amortized Intuition</title>
     });
     </script>
     -->
+
+    <script>
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = document.querySelector('.essay-nav');
+        toggle.addEventListener('click', function() {
+            var open = nav.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+    })();
+    </script>
 
     <!-- KaTeX -->
     <script defer src="../../katex/katex.min.js"></script>

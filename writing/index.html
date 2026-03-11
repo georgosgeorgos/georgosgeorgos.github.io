@@ -14,6 +14,9 @@
             <strong>Amortized Intuition</strong>
             <span class="nav-subtitle">Notes on machine learning, inference, and related topics.</span>
         </span>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <span class="nav-links">
             <a href="../index.html">About</a>
             <span class="nav-divider">|</span>
@@ -58,6 +61,17 @@
     });
     </script>
     -->
+
+    <script>
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = document.querySelector('.essay-nav');
+        toggle.addEventListener('click', function() {
+            var open = nav.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+    })();
+    </script>
 
     <script>
     function filterItems(filter) {
