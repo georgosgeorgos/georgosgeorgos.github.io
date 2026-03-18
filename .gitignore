@@ -20,5 +20,8 @@ Gemfile.lock
 # Node (if used for tooling)
 node_modules/
 
+# LaTeX
+latex/
+
 # Logs
 *.log
