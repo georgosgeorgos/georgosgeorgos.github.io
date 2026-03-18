@@ -448,6 +448,12 @@ tbody tr:hover {
     background: #f6f8f5;
 }
 
+.essay-container table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 /* --- IMAGES & FIGURES --- */
 img {
     max-width: 100%;

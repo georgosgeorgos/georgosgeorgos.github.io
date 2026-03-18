@@ -14,12 +14,12 @@ if [ -z "$1" ] || [ ! -d "$ESSAY_DIR" ]; then
     exit 1
 fi
 
-if [ ! -f "$ESSAY_DIR/essay.md" ]; then
-    echo "Error: $ESSAY_DIR/essay.md not found"
+if [ ! -f "$ESSAY_DIR/index.md" ]; then
+    echo "Error: $ESSAY_DIR/index.md not found"
     exit 1
 fi
 
-pandoc "$ESSAY_DIR/essay.md" \
+pandoc "$ESSAY_DIR/index.md" \
     -o "$ESSAY_DIR/index.html" \
     --template="$SCRIPT_DIR/template.html" \
     --katex \

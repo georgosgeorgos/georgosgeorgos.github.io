@@ -57,7 +57,16 @@ document.addEventListener("DOMContentLoaded", function() {
             var sup = document.createElement("sup");
             sup.className = "sidenote-ref";
             sup.textContent = counter;
-            note.parentNode.insertBefore(sup, note);
+
+            // If the sidenote starts a <p> that follows a display equation,
+            // attach the marker to the end of the previous paragraph instead.
+            var parent = note.parentNode;
+            var prevEl = parent.previousElementSibling;
+            if (parent.tagName === "P" && parent.firstChild === note && prevEl) {
+                prevEl.appendChild(sup);
+            } else {
+                note.parentNode.insertBefore(sup, note);
+            }
 
             // Create the margin note
             var marginNote = document.createElement("div");
