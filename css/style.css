@@ -390,6 +390,7 @@ details.section:not([open]) .section-heading .heading::before {
         display: none;
         width: 100%;
         flex-direction: column;
+        align-items: flex-start;
     }
 
     .nav-divider {
