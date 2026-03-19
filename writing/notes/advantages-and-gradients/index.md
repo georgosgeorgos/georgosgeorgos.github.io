@@ -1,5 +1,5 @@
 ---
-title: "Advantages and Where to Find (Divergences) over Them"
+title: "Advantages and Where to Find (Divergences over) Them"
 date: "Mar 18, 2026"
 category: "note"
 ---
