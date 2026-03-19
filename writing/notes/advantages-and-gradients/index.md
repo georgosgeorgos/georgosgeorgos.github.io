@@ -19,47 +19,50 @@ We show how this formulation naturally corresponds to on-policy reinforcement le
 
 ### Reverse KL (rKL)
 
-We sample the model/policy $p_{\theta}$ we are learning.
+We sample the model/policy $p_{\theta}$ we are learning:
 
 $$\mathbb{KL}[p_{\theta},q] = \int p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q(\mathbf{z})} \, d\mathbf{z} = \mathbb{E}_{p_{\theta}(\mathbf{z})} \left[\log \frac{p_{\theta}(\mathbf{z})}{q(\mathbf{z})}\right]$$
 
 ### Gradient Reverse KL (grKL)
 
-$$\nabla_{\theta} \int p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q(\mathbf{z})} \, d\mathbf{z} = \int p_{\theta}(\mathbf{z}) \nabla_{\theta} \log p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q(\mathbf{z})} \, d\mathbf{z} = \mathbb{E}_{p_{\theta}(\mathbf{z})}\left[\nabla_{\theta} \log p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q(\mathbf{z})}\right]$$
+<span class="sidenote">We use the score function estimator $\nabla_{\theta} \log p_{\theta}(\mathbf{z})$ throughout. See Mohamed et al. (2020) for pathwise and measure-valued alternatives.</span>
+
+$$\begin{aligned}
+\nabla_{\theta} \int p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q(\mathbf{z})} \, d\mathbf{z} &= \int p_{\theta}(\mathbf{z}) \nabla_{\theta} \log p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q(\mathbf{z})} \, d\mathbf{z} \\
+&= \mathbb{E}_{p_{\theta}(\mathbf{z})}\left[\nabla_{\theta} \log p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q(\mathbf{z})}\right]
+\end{aligned}$$
 
 ### Forward KL (fKL)
 
-We sample a different model $q$ or data distribution.
+We sample a different model $q$ or data distribution:
 
 $$\mathbb{KL}[q,p_{\theta}] = \int q(\mathbf{z}) \log \frac{q(\mathbf{z})}{p_{\theta}(\mathbf{z})} \, d\mathbf{z} = \mathbb{E}_{q(\mathbf{z})} \left[\log \frac{q(\mathbf{z})}{p_{\theta}(\mathbf{z})}\right]$$
 
 ### Gradient Forward KL (gfKL)
 
-$$\nabla_{\theta} \int q(\mathbf{z}) \log \frac{q(\mathbf{z})}{p_{\theta}(\mathbf{z})} \, d\mathbf{z} = - \int q(\mathbf{z}) \nabla_{\theta} \log p_{\theta}(\mathbf{z}) \, d\mathbf{z} = - \mathbb{E}_{q(\mathbf{z})} \left[\nabla_{\theta} \log p_{\theta}(\mathbf{z})\right]$$
+$$\begin{aligned}
+\nabla_{\theta} \int q(\mathbf{z}) \log \frac{q(\mathbf{z})}{p_{\theta}(\mathbf{z})} \, d\mathbf{z} &= - \int q(\mathbf{z}) \nabla_{\theta} \log p_{\theta}(\mathbf{z}) \, d\mathbf{z} \\
+&= - \mathbb{E}_{q(\mathbf{z})} \left[\nabla_{\theta} \log p_{\theta}(\mathbf{z})\right]
+\end{aligned}$$
 
 ## From Divergences to Advantages
 
-### Gradient Estimation
-
-See Mohamed et al. (2020) for different estimators for the analytical gradients.
-
-- Score Function Gradient Estimator (our focus — $\nabla_{\theta} \log p_{\theta}(\mathbf{z})$)
-- Pathwise Gradient Estimator
-- Measure-valued Gradients Estimator
-
 ### Maximum Likelihood (MLE)
 
-We minimize the fKL, optimizing the model likelihood w.r.t. samples from $q(\mathbf{z})$. For standard supervised scenarios, $q(\mathbf{z})$ is the empirical data distribution (samples from a dataset).
+We minimize the fKL, optimizing the model likelihood w.r.t. samples from $q(\mathbf{z})$: <span class="sidenote">For standard supervised scenarios, $q(\mathbf{z})$ is the empirical data distribution (samples from a dataset).</span>
 
 $$\mathcal{F}(\mathbf{z}) = \int q(\mathbf{z}) \log p_{\theta}(\mathbf{z}) \, d\mathbf{z} = \mathbb{E}_{q(\mathbf{z})} \left[\log p_{\theta}(\mathbf{z})\right]$$
 
 and compute the gradient (gfKL):
 
-$$\nabla_{\theta} \int q(\mathbf{z}) \log p_{\theta}(\mathbf{z}) \, d\mathbf{z} = \int q(\mathbf{z}) \nabla_{\theta} \log p_{\theta}(\mathbf{z}) \, d\mathbf{z} = \mathbb{E}_{q(\mathbf{z})} \left[\nabla_{\theta} \log p_{\theta}(\mathbf{z})\right]$$
+$$\begin{aligned}
+\nabla_{\theta} \int q(\mathbf{z}) \log p_{\theta}(\mathbf{z}) \, d\mathbf{z} &= \int q(\mathbf{z}) \nabla_{\theta} \log p_{\theta}(\mathbf{z}) \, d\mathbf{z} \\
+&= \mathbb{E}_{q(\mathbf{z})} \left[\nabla_{\theta} \log p_{\theta}(\mathbf{z})\right]
+\end{aligned}$$
 
 ### Policy Gradient (PG)
 
-Related to rKL but not the equivalent in general. We consider on-policy methods only (i.e. methods that rely on samples from the model $p_{\theta}$). Our goal is to maximize the expected advantage $a(\mathbf{z})$:
+Policy gradients are related to the rKL but not equivalent in general. We consider on-policy methods only (i.e. methods that rely on samples from the model $p_{\theta}$). Our goal is to maximize the expected advantage $a(\mathbf{z})$:
 
 $$\mathcal{J}(\mathbf{z}) = \int p_{\theta}(\mathbf{z}) \, a(\mathbf{z}) \, d\mathbf{z} = \mathbb{E}_{p_{\theta}(\mathbf{z})} \left[a(\mathbf{z})\right]$$
 
@@ -75,19 +78,22 @@ Based on how we define the advantage $a(\mathbf{z})$, we can derive a suite of m
 | Entropy | $-\log p_{\theta}(\mathbf{z})$ | Haarnoja et al., 2018 |
 | rKL | $-\log \frac{p_{\theta}(\mathbf{z})}{q(\mathbf{z})}$ | Shenfeld et al., 2026; Hubotter et al., 2026; Rafailov et al., 2024 (off-policy) |
 
-All these methods share the same underlying policy gradient, differing only in the choice of advantage:
+All these methods share the same underlying policy gradient, differing only in the choice of advantage: <span class="sidenote">We assume no gradient on $q$ and $\int p_{\theta}(\mathbf{z}) \nabla_{\theta} \log p_{\theta}(\mathbf{z}) = 0$. The gradient of the policy can also be interpreted as a re-weighted regression task, where samples from the model (not from a dataset) are reweighted based on some scoring rule.</span>
 
-$$\nabla_{\theta} \int p_{\theta}(\mathbf{z}) \, a(\mathbf{z}) \, d\mathbf{z} = \int p_{\theta}(\mathbf{z}) \nabla_{\theta} \log p_{\theta}(\mathbf{z}) \, a(\mathbf{z}) \, d\mathbf{z} = \mathbb{E}_{p_{\theta}(\mathbf{z})}\left[\nabla_{\theta} \log p_{\theta}(\mathbf{z}) \, a(\mathbf{z})\right]$$
-
-<span class="sidenote">We assume no gradient on $q$ and $\int p_{\theta}(\mathbf{z}) \nabla_{\theta} \log p_{\theta}(\mathbf{z}) = 0$. The gradient of the policy can also be interpreted as a re-weighted regression task, where samples from the model (not from a dataset) are reweighted based on some scoring rule.</span>
+$$\begin{aligned}
+\nabla_{\theta} \int p_{\theta}(\mathbf{z}) \, a(\mathbf{z}) \, d\mathbf{z} &= \int p_{\theta}(\mathbf{z}) \nabla_{\theta} \log p_{\theta}(\mathbf{z}) \, a(\mathbf{z}) \, d\mathbf{z} \\
+&= \mathbb{E}_{p_{\theta}(\mathbf{z})}\left[\nabla_{\theta} \log p_{\theta}(\mathbf{z}) \, a(\mathbf{z})\right]
+\end{aligned}$$
 
 ### Knowledge Distillation (KD)
 
-Knowledge Distillation (Hinton et al., 2015), which optimizes the forward KL divergence, is the standard approach for distilling large, expert models into smaller, more efficient ones (Chiang et al., 2023; Guo et al., 2025; Sudalairaj et al., 2024) using supervised fine-tuning. However, effective KD often interferes with the student model's underlying distribution, leading to catastrophic forgetting and brittle behavior. Consequently, practitioners typically require additional techniques to mitigate these issues, including tuning on complementary data to refresh the training distribution, careful learning rate scheduling, and various stabilization tricks (Pareja et al., 2024).
+Knowledge Distillation (Hinton et al., 2015), which optimizes the forward KL divergence, is the standard approach for distilling large, expert models into smaller, more efficient ones (Chiang et al., 2023; Guo et al., 2025; Sudalairaj et al., 2024) using supervised fine-tuning. However, effective KD often interferes with the student model's underlying distribution, leading to catastrophic forgetting and brittle behavior: <span class="sidenote">Practitioners typically require additional techniques to mitigate these issues, including tuning on complementary data to refresh the training distribution, careful learning rate scheduling, and various stabilization tricks (Pareja et al., 2024).</span>
 
 $$\mathbb{KL}[q_{\text{teacher}}, p_{\theta}] = \int q_{\text{teacher}}(\mathbf{z}) \log \frac{q_{\text{teacher}}(\mathbf{z})}{p_{\theta}(\mathbf{z})} \, d\mathbf{z}$$
 
-$$\nabla_{\theta} \int q_{\text{teacher}}(\mathbf{z}) \log \frac{q_{\text{teacher}}(\mathbf{z})}{p_{\theta}(\mathbf{z})} \, d\mathbf{z} = - \mathbb{E}_{q_{\text{teacher}}(\mathbf{z})} \left[\nabla_{\theta} \log p_{\theta}(\mathbf{z})\right]$$
+$$\begin{aligned}
+\nabla_{\theta} \int q_{\text{teacher}}(\mathbf{z}) \log \frac{q_{\text{teacher}}(\mathbf{z})}{p_{\theta}(\mathbf{z})} \, d\mathbf{z} &= - \mathbb{E}_{q_{\text{teacher}}(\mathbf{z})} \left[\nabla_{\theta} \log p_{\theta}(\mathbf{z})\right]
+\end{aligned}$$
 
 ### Self-Distillation (SD)
 
@@ -101,33 +107,37 @@ The key advantage of on-policy updates is that sampling directly from the studen
 
 Notably, the source of teacher feedback determines the nature of the learning signal. When demonstrations condition the teacher (Shenfeld et al., 2026), the approach remains driven by external feedback. Conversely, when the student model itself provides feedback (Hubotter et al., 2026), Self-Distillation resembles reinforcement learning with intrinsic motivation, driven by exploration, novelty, or autonomous feedback mechanisms.
 
+The Self-Distillation objective optimizes the reverse KL between the student and the teacher:
+
 $$\mathbb{KL}[p_{\theta}, q_{\text{teacher}}] = \int p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q_{\text{teacher}}(\mathbf{z})} \, d\mathbf{z}$$
 
-$$\nabla_{\theta} \int p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q_{\text{teacher}}(\mathbf{z})} \, d\mathbf{z} = \mathbb{E}_{p_{\theta}(\mathbf{z})}\left[\nabla_{\theta} \log p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q_{\text{teacher}}(\mathbf{z})}\right]$$
+$$\begin{aligned}
+\nabla_{\theta} \int p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q_{\text{teacher}}(\mathbf{z})} \, d\mathbf{z} &= \mathbb{E}_{p_{\theta}(\mathbf{z})}\left[\nabla_{\theta} \log p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{q_{\text{teacher}}(\mathbf{z})}\right]
+\end{aligned}$$
 
 or, if the teacher is the model itself with privileged information $\mathbf{h} = h(\mathbf{z})$:
 
-$$\nabla_{\theta} \int p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{[p_{\theta}(\mathbf{z} | \mathbf{h})]_{\text{sg}}} \, d\mathbf{z} = \mathbb{E}_{p_{\theta}(\mathbf{z})}\left[\nabla_{\theta} \log p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{p_{\theta}(\mathbf{z} | \mathbf{h})}\right]$$
+$$\begin{aligned}
+\nabla_{\theta} \int p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{[p_{\theta}(\mathbf{z} | \mathbf{h})]_{\text{sg}}} \, d\mathbf{z} &= \mathbb{E}_{p_{\theta}(\mathbf{z})}\left[\nabla_{\theta} \log p_{\theta}(\mathbf{z}) \log \frac{p_{\theta}(\mathbf{z})}{p_{\theta}(\mathbf{z} | \mathbf{h})}\right]
+\end{aligned}$$
 
-Notice the similarity with the PG gradient:
+This has the same form as the policy gradient, with the log density ratio acting as the advantage:
 
 $$\mathbb{E}_{p_{\theta}(\mathbf{z})}\left[\nabla_{\theta} \log p_{\theta}(\mathbf{z}) \, a(\mathbf{z})\right], \quad a(\mathbf{z}) = -\log \frac{p_{\theta}(\mathbf{z})}{p_{\theta}(\mathbf{z} | \mathbf{h})}$$
 
-#### RLVR vs SD
+### Sparse and Dense Feedback
 
-RLVR provides reward or verification on the target. SD provides feedback at the token level, similar to an intrinsic process reward.
+Reinforcement Learning from Verifiable Reward (RLVR) provides reward or verification on the target. SD provides feedback at the token level, similar to an intrinsic process reward.
 
-To clarify this point, consider autoregressive rollouts $\mathbf{z}_i = \{\mathbf{z}^1_i, \mathbf{z}^2_i, \ldots, \mathbf{z}^T_i\}$ of length $T$ (we omit the prompt $\mathbf{c}$ for clarity). In RLVR, given a group of rollouts $\{\mathbf{z}_i\}^G_{i=1}$ the advantage for rollout $\mathbf{z}_i$ at token $t$ is:
+To clarify this point, consider autoregressive rollouts $\mathbf{z}_i = \{\mathbf{z}^1_i, \mathbf{z}^2_i, \ldots, \mathbf{z}^T_i\}$ of length $T$. <span class="sidenote">We omit the prompt $\mathbf{c}$ for clarity.</span> In RLVR, given a group of rollouts $\{\mathbf{z}_i\}^G_{i=1}$ the advantage for rollout $\mathbf{z}_i$ at token $t$ is: <span class="sidenote">RLVR can only provide delayed feedback over the output and over a group. Each token $t$ receives the same reward and only a posteriori.</span>
 
 $$\mathbf{z}_{i} \sim p(\mathbf{z}^1_i) \prod^{T}_{t=2} p_{\theta}(\mathbf{z}^{t}_i | \mathbf{z}^{t-1}_i) \quad i \in \{1, \ldots, G\}$$
 
-$$a(\mathbf{z}^t_{i}) = r_i(\mathbf{z}_{i}) - m(r_j(\mathbf{z}_j))^G_{j=1}, \quad \forall t \in \{1, \ldots, T\}$$
-
-RLVR can only provide delayed feedback over the output and over a group. Each token $t$ receives the same reward and only a posteriori.
+$$a(\mathbf{z}^t_{i}) = r_i(\mathbf{z}_{i}) - \frac{1}{G}\sum_{j=1}^G r_j(\mathbf{z}_j), \quad \forall t \in \{1, \ldots, T\}$$
 
 The advantage for SD is:
 
-$$\mathbf{z}^t_{i} \sim p(\mathbf{z}^1_i) \prod^{t}_{t=2} p_{\theta}(\mathbf{z}^{t}_i | \mathbf{z}^{t-1}_i)$$
+$$\mathbf{z}^t_{i} \sim p(\mathbf{z}^1_i) \prod^{\hat t}_{t=2} p_{\theta}(\mathbf{z}^{t}_i | \mathbf{z}^{t-1}_i)$$
 
 $$a(\mathbf{z}^t_{i}) = -\log \frac{p_{\theta}(\mathbf{z}^t_i | \mathbf{z}^{t-1}_i)}{p_{\theta}(\mathbf{z}^t_i | \mathbf{z}^{t-1}_i, \mathbf{h})}$$
 
@@ -146,11 +156,11 @@ where $\mathbf{h}$ is some form of additional information (hint, demonstration, 
 
 ### Policy Gradient with KL Regularization
 
-Following Korbak et al. (2022) and Rafailov et al. (2024), PPO-like algorithms can be reinterpreted through the lens of Bayesian inference, connecting reinforcement learning objectives to probabilistic modeling frameworks.
+Following Korbak et al. (2022) and Rafailov et al. (2024), PPO-like algorithms can be reinterpreted through the lens of Bayesian inference, connecting reinforcement learning objectives to probabilistic modeling frameworks:
 
 $$\mathcal{F}_{\text{PPO}} = \mathbb{E}_{p_{\theta}(\mathbf{z})} \left[a(\mathbf{z}) - \gamma \log \frac{p_{\theta}(\mathbf{z})}{p_{\text{ref}}(\mathbf{z})}\right]$$
 
-Notice how the regularization term that pushes the model update to stay close to the reference (typically a previous model version or SFT) is a reverse KL. This formulation consists in PG + rKL.
+Notice how the regularization term that pushes the model update to stay close to the reference is a reverse KL. <span class="sidenote">The reference is typically a previous model version or the SFT checkpoint.</span> This formulation consists of PG + rKL.
 
 ### Entropy Regularization
 
@@ -158,7 +168,7 @@ Many modern post-training pipelines incorporate entropy regularization (Haarnoja
 
 $$\mathcal{H}(\mathbf{z}) = - \int p_{\theta}(\mathbf{z}) \log p_{\theta}(\mathbf{z}) \, d\mathbf{z}$$
 
-Note that entropy is closely related to the reverse KL divergence; the two differ by an expectation over a term involving $q(\mathbf{z})$ when $q$ is non-uniform.
+Note that entropy is closely related to the reverse KL divergence. <span class="sidenote">The two differ by an expectation over a term involving $q(\mathbf{z})$ when $q$ is non-uniform.</span>
 
 ### On-policy and Off-policy Sampling
 
@@ -166,7 +176,7 @@ Broadly, *on-policy* learning samples from the same model being optimized, $p_{\
 
 In practice, truly on-policy sampling is difficult to achieve at scale. Most systems therefore use large-batch collection together with variants of importance sampling (or related corrections) to make training efficient, so policy-gradient methods are typically implemented as an alternating loop with a sampling phase followed by an optimization phase.
 
-The shorter the sampling-to-training lag, the closer the procedure is to on-policy. In modern pipelines, sampling is often handled by a dedicated inference stack (e.g., vLLM), while optimization runs in a separate training framework (e.g., RTF or verl); small implementation differences across these components can lead to mismatched logits, which should be accounted for when interpreting results as on-policy learning.
+The shorter the sampling-to-training lag, the closer the procedure is to on-policy. <span class="sidenote">In modern pipelines, sampling is often handled by a dedicated inference stack (e.g., vLLM), while optimization runs in a separate training framework (e.g., RTF or verl); small implementation differences across these components can lead to mismatched logits, which should be accounted for when interpreting results as on-policy learning.</span>
 
 ### Amortized Variational Inference (AVI)
 
@@ -174,9 +184,10 @@ Amortized Variational Inference (Jordan et al., 1999; Rezende et al., 2014; King
 
 $$\mathbb{KL}\left[q_{\phi}, p\right] = \mathbb{E}_{q_{\phi}(\mathbf{z})} \left[\log \frac{q_{\phi}(\mathbf{z})}{p(\mathbf{z} | \mathbf{x})}\right]$$
 
-This KL formulation yields the evidence lower bound (ELBO) on the marginal likelihood:
+This KL formulation yields the evidence lower bound (ELBO) on the marginal likelihood: <span class="sidenote">When we fix the variational parameters $\phi$ and optimize only the model parameters $\theta$, the objective reduces to $\mathbb{E}_{q_{\phi}(\mathbf{z})}\left[\log p_{\theta}(\mathbf{x}, \mathbf{z})\right]$, corresponding to the negated forward KL or equivalently the MLE objective. Thus, AVI jointly optimizes reverse KL w.r.t. $\phi$ and forward KL w.r.t. $\theta$.</span>
 
 $$\mathcal{F}(\mathbf{z}) = \mathbb{E}_{q_{\phi}(\mathbf{z})}\left[\log\frac{p_{\theta}(\mathbf{x}, \mathbf{z})}{q_{\phi}(\mathbf{z} | \mathbf{x})}\right]$$
 
-<span class="sidenote">When we fix the variational parameters $\phi$ and optimize only the model parameters $\theta$, the objective reduces to $\mathbb{E}_{q_{\phi}(\mathbf{z})}\left[\log p_{\theta}(\mathbf{x}, \mathbf{z})\right]$, corresponding to the negated forward KL or equivalently the MLE objective. Thus, AVI jointly optimizes reverse KL w.r.t. $\phi$ and forward KL w.r.t. $\theta$.</span>
+---
 
+The advantage perspective provides a unifying lens: MLE, KD, SD, entropy regularization, and RL methods all share the same policy gradient structure and differ only in how the advantage $a(\mathbf{z})$ is defined. The choice of advantage determines what the model learns — whether it imitates a teacher, maximizes a reward, or matches its own conditionals. The choice of teacher $q(\mathbf{z})$ determines the source of the learning signal — external demonstrations, environment feedback, or the model's own privileged knowledge.
