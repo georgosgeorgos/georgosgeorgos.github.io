@@ -721,6 +721,7 @@ hr {
         display: none;
         width: 100%;
         flex-direction: column;
+        align-items: flex-start;
     }
 
     .essay-nav.nav-open .nav-links {

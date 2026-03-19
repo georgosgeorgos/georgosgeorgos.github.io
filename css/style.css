@@ -397,7 +397,12 @@ details.section:not([open]) .section-heading .heading::before {
         display: none;
     }
 
-    #site-nav.nav-open .nav-group {
+    .nav-notes {
+        display: none;
+    }
+
+    #site-nav.nav-open .nav-group,
+    #site-nav.nav-open .nav-notes {
         display: flex;
     }
 
