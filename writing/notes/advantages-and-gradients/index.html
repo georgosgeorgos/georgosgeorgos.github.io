@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Connecting Reverse KL divergence, Self-Distillation, and Policy Gradient algorithms through the lens of advantage functions.">
+    <meta name="author" content="Giorgio Giannone">
+    <meta property="og:title" content="Advantages and Where to Find (Divergences) over Them — Amortized Intuition">
+    <meta property="og:description" content="Connecting Reverse KL divergence, Self-Distillation, and Policy Gradient algorithms through the lens of advantage functions.">
+    <meta property="og:type" content="article">
     <title>Advantages and Where to Find (Divergences) over Them — Amortized Intuition</title>
     <link href="https://fonts.cdnfonts.com/css/ubuntu-mono" rel="stylesheet">
     <link rel="icon" href="../../../assets/me.png">
@@ -12,6 +16,9 @@
 </head>
 <body>
     <nav class="essay-nav">
+        <span class="nav-title">
+            <a href="../../index.html"><strong>Amortized Intuition</strong></a>
+        </span>
         <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
@@ -331,11 +338,11 @@
             p_{\theta}(\mathbf{z}^{t}_i | \mathbf{z}^{t-1}_i) \quad i
             \in \{1, \ldots, G\}</span></p>
             <p><span class="math display">a(\mathbf{z}^t_{i}) =
-            r_i(\mathbf{z}_{i}) - m(r_j(\mathbf{z}_j))^G_{j=1}, \quad
+            r_i(\mathbf{z}_{i}) - \frac{1}{G}\sum_{j=1}^G r_j(\mathbf{z}_j), \quad
             \forall t \in \{1, \ldots, T\}</span></p>
             <p>The advantage for SD is:</p>
             <p><span class="math display">\mathbf{z}^t_{i} \sim
-            p(\mathbf{z}^1_i) \prod^{t}_{t=2}
+            p(\mathbf{z}^1_i) \prod^{\hat t}_{t=2}
             p_{\theta}(\mathbf{z}^{t}_i | \mathbf{z}^{t-1}_i)</span></p>
             <p><span class="math display">a(\mathbf{z}^t_{i}) = -\log
             \frac{p_{\theta}(\mathbf{z}^t_i |
