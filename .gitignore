@@ -25,3 +25,6 @@ latex/
 
 # Logs
 *.log
+
+# Superpowers
+.superpowers/
