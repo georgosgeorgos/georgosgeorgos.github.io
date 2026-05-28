@@ -90,12 +90,12 @@
                                                 Hat</strong></a> in Boston,
                                         where I lead research on Probabilistic Inference Methods for Foundation Models.
                                         
-                                        <br><br>
+                                        <!-- <br><br>
                                         In collaboration with the Core AI Team at <a href="https://www.ibm.com/"
                                             target="_blank"><strong>IBM</strong></a>, I develop Context Optimization
                                         algorithms to improve the reliability and cost efficiency of enterprise-scale
                                         <a href="https://www.ibm.com/think/topics/agentops"
-                                            target="_blank">AgentOps</a>.
+                                            target="_blank">AgentOps</a>. -->
 
                                         <br><br>
                                         I also hold an appointment as a Research Affiliate with the <a
@@ -207,6 +207,65 @@
                                         <span class="pub-filter-option" data-filter="all">all</span>
                                     </span>
                         </summary>
+
+                            <div class="entry-row paper-selected">
+                                <div class="entry-img"><img loading="lazy" src="./assets/images/sgpo.png" alt="iPF"></div>
+                                <div class="entry-body">
+                                    <p>
+                                        <a href="" target="_blank">
+                                        <h3 class="papertitle">
+                                            sGPO: Trading Inference FLOPs for Training Efficiency in RLVR
+                                        </h3>
+                                        </a>
+                                        <br>
+                                        <a href="https://www.linkedin.com/in/shivchanders" target="_blank">Shivchander
+                                            Sudalairaj</a>,
+                                        <a href="https://xuk.ai/" target="_blank">Kai Xu</a>,
+                                        <a href="https://akashgit.github.io" target="_blank">Akash Srivastava</a>,
+                                        <strong>Giorgio Giannone</strong>
+                                        <br>
+                                        <em>Under Review</em>, 2026
+                                        <br>
+                                    </p>
+                                    Standard Reinforcement Learning with Verifiable Rewards (RLVR) training allocates a fixed rollout budget to every query, without regard for what each query's difficulty means for the current policy. 
+                                    This leads to two symmetric failure modes: easy queries produce near-zero advantage because the policy already solves them, while unsolvable queries produce no signal because the policy never solves them. Both regimes waste training FLOPs without contributing to a learning gradient. We introduce sorted Group Policy Optimization (sGPO), a compute-efficient strategy that trades a small budget of inference FLOPs for a large reduction in wasted training FLOPs. The key insight is that cheap inference compute can serve as a single offline proxy for query difficulty. By generating a small batch of parallel samples per query under the initial policy, we obtain a model-aware empirical success rate.
+                                </div>
+                            </div>
+
+
+                            <div class="entry-row paper-selected">
+                                <div class="entry-img"><img loading="lazy" src="./assets/images/ipf.png" alt="iPF"></div>
+                                <div class="entry-body">
+                                    <p>
+                                        <a href="" target="_blank">
+                                        <h3 class="papertitle">
+                                            Intrinsic Selection and Particle Resampling for Inference-Time Scaling Beyond Domain Verifiability
+                                        </h3>
+                                        </a>
+                                        <br>
+                                        <strong>Giorgio Giannone</strong>,
+                                        <a href="https://www.linkedin.com/in/mustafa-eyceoz" target="_blank">Mustafa Eyceoz</a>,
+                                        <a href="https://github.com/s-akhtar-baig" target="_blank">Shabana Baig</a>,
+                                        <a href="https://www.linkedin.com/in/shivchanders" target="_blank">Shivchander
+                                            Sudalairaj</a>,
+                                        <a href="https://www.linkedin.com/in/annie-doris">Anna C. Doris</a>,
+                                        <a href="https://meche.mit.edu/people/faculty/faez@MIT.EDU">Faez Ahmed</a>,
+                                        <a href="https://akashgit.github.io" target="_blank">Akash Srivastava</a>,
+                                        <a href="https://xuk.ai/" target="_blank">Kai Xu</a>
+                                        <br>
+                                        <em>Under Review</em>, 2026
+                                        <br>
+                                    </p>
+                                    Inference-Time Scaling (ITS) has largely succeeded in verifiable domains like
+                                    math and coding, where cheap verification enables scalable output selection. How-
+                                    ever, extending ITS to tasks prone to systematic failure - driven by faulty initial
+                                    assumptions or unmet multidimensional constraints - typically relies on costly ex
+                                    external solvers or brittle, model-based verifiers. Our key insight is that the intrinsic
+                                    statistics of parallel sample sets, specifically length-adjusted tail entropy, provide
+                                    a robust discriminative signal for solution quality without access to ground truth.
+                                    Crucially, these statistics serve as a difficulty gate for adaptive compute allocation, dynamically routing problems across scaling regimes.
+                                </div>
+                            </div>
 
 
                             <div class="entry-row">
