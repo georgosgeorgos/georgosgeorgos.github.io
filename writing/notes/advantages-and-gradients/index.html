@@ -573,6 +573,96 @@ Them</h1>
             source of the learning signal — external demonstrations,
             environment feedback, or the model’s own privileged
             knowledge.</p>
+            <h2 id="ideas">Ideas</h2>
+            <h3
+            id="on-policy-elicitation-and-off-policy-skill-acquisition">On-Policy
+            Elicitation and Off-Policy Skill Acquisition</h3>
+            <p>We frame this as an active RL / active learning setup
+            that mixes on-policy elicitation with selective off-policy
+            skill acquisition.</p>
+            <p>For easy to medium tasks where the model already succeeds
+            occasionally, we rely primarily on on-policy sampling.
+            Concretely, we target problems the model can solve at least
+            a few times within a budget of <span
+            class="math inline">K</span> attempts, i.e., <span
+            class="math inline">\text{pass@}K &gt; \tau</span>, with a
+            reasonable choice such as <span class="math inline">K \in
+            \{64, 128\}</span>. Problems at the level of AIME 2024 are a
+            representative example.</p>
+            <p>For harder tasks where <span
+            class="math inline">\text{pass@}K \approx 0</span>, pure
+            on-policy rollouts provide little learning signal. In these
+            cases, we inject off-policy information — e.g.,
+            demonstrations, hints, or environment feedback — to provide
+            a usable training target. Alternatively, we can sample from
+            a stronger teacher <span
+            class="math inline">q_{\text{teacher}}(\mathbf{z} |
+            \mathbf{h})</span>; in practice, switching from reverse KL
+            (rKL) to forward KL (fKL) can help unlock new behaviors and
+            expand the student’s support.</p>
+            <p>Overall, the goal is to use on-policy training most of
+            the time, while intermittently using off-policy data to
+            unlock new capabilities or substantially accelerate
+            learning. This hybrid can be implemented naturally via
+            knowledge distillation (KD) combined with self-distillation
+            (SD):</p>
+            <p><span
+            class="math display">\alpha(\mathbf{c})\,\mathbb{KL}\left[q_{\text{expert}},
+            p_{\theta}\right] + (1 -
+            \alpha(\mathbf{c}))\,\mathbb{KL}\left[p_{\theta},
+            q_{\text{teacher}}\right].</span></p>
+            <p>What is <span
+            class="math inline">\alpha(\mathbf{c})</span>? It is a way
+            to quantify the hardness of a task. For example, after
+            sampling <span class="math inline">N</span> times from the
+            model <span class="math inline">\{\mathbf{z}\}^{N}_{i=1}
+            \sim p_{\theta}(\mathbf{z} | \mathbf{c})</span> without
+            success (<span class="math inline">\text{pass@}N \approx
+            0</span>), <span class="math inline">\alpha(\mathbf{c}) =
+            1</span>. In general <span
+            class="math inline">\alpha(\mathbf{c}) = n / N</span> with
+            <span class="math inline">N \geq 64</span> and <span
+            class="math inline">n</span> the number of successes. Notice
+            that if <span class="math inline">\alpha = 0.5</span> and
+            <span class="math inline">q_{\text{expert}} =
+            q_{\text{teacher}}</span>, we obtain the JSD.</p>
+            <h3 id="exploration-via-distillation">Exploration via
+            Distillation</h3>
+            <p>Can we use SD to incentivize exploration? Can we define a
+            teacher that wants to explore (<span
+            class="math inline">\mathbf{h}</span> could be an entropy or
+            novelty bonus).</p>
+            <h3 id="self-distillation-as-scoring">Self-Distillation as
+            Scoring</h3>
+            <p><strong>Reinforced finetuning.</strong> We can use the
+            rKL as a scoring function for RFT. For each pair <span
+            class="math inline">(\mathbf{c}, \mathbf{y})</span>, with
+            <span class="math inline">\mathbf{c}</span> being the prompt
+            (math question) and <span
+            class="math inline">\mathbf{y}</span> being the answer, we
+            sample <span class="math inline">p_{\theta}(\mathbf{z} |
+            \mathbf{c})</span> <span class="math inline">N</span> times
+            for each prompt <span class="math inline">\mathbf{c}</span>,
+            and compute the scores</p>
+            <p><span class="math display">s_i(\mathbf{c}) =
+            \mathbb{KL}\left[p_{\theta}(\mathbf{z}_i | \mathbf{c}),\,
+            p_{\theta}(\mathbf{z}_i | \mathbf{c}, \mathbf{y})\right]
+            \quad \forall\, i = 1, \ldots, N.</span></p>
+            <p>We then sort (high to low) and select the top-<span
+            class="math inline">K</span> and tune on them. We can also
+            select the following top-<span class="math inline">K</span>
+            as negatives for an (on-policy) DPO-like training.</p>
+            <p><strong>STaR-distillation.</strong> The same approach
+            combined with inference-time scaling gives a STaR loop with
+            self-distillation. Hints as posterior inference. Use the KL
+            as scoring/verification mechanism.</p>
+            <p><strong>Curriculum distillation.</strong> Early in
+            training, provide soft hints to the teacher, <span
+            class="math inline">q(\mathbf{z} | \mathbf{h})</span>, where
+            <span class="math inline">\mathbf{h}</span> is a weak
+            constraint. Late in training, provide strong constraints
+            (target label). This approach aims to improve exploration
+            early on.</p>
 
             <footer class="essay-footer">
                 <a href="../../index.html">← Back to all writing</a>

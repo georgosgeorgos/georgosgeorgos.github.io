@@ -191,3 +191,35 @@ $$\mathcal{F}(\mathbf{z}) = \mathbb{E}_{q_{\phi}(\mathbf{z})}\left[\log\frac{p_{
 ---
 
 The advantage perspective provides a unifying lens: MLE, KD, SD, entropy regularization, and RL methods all share the same policy gradient structure and differ only in how the advantage $a(\mathbf{z})$ is defined. The choice of advantage determines what the model learns — whether it imitates a teacher, maximizes a reward, or matches its own conditionals. The choice of teacher $q(\mathbf{z})$ determines the source of the learning signal — external demonstrations, environment feedback, or the model's own privileged knowledge.
+
+## Ideas
+
+### On-Policy Elicitation and Off-Policy Skill Acquisition
+
+We frame this as an active RL / active learning setup that mixes on-policy elicitation with selective off-policy skill acquisition.
+
+For easy to medium tasks where the model already succeeds occasionally, we rely primarily on on-policy sampling. Concretely, we target problems the model can solve at least a few times within a budget of $K$ attempts, i.e., $\text{pass@}K > \tau$, with a reasonable choice such as $K \in \{64, 128\}$. Problems at the level of AIME 2024 are a representative example.
+
+For harder tasks where $\text{pass@}K \approx 0$, pure on-policy rollouts provide little learning signal. In these cases, we inject off-policy information — e.g., demonstrations, hints, or environment feedback — to provide a usable training target. Alternatively, we can sample from a stronger teacher $q_{\text{teacher}}(\mathbf{z} | \mathbf{h})$; in practice, switching from reverse KL (rKL) to forward KL (fKL) can help unlock new behaviors and expand the student's support.
+
+Overall, the goal is to use on-policy training most of the time, while intermittently using off-policy data to unlock new capabilities or substantially accelerate learning. This hybrid can be implemented naturally via knowledge distillation (KD) combined with self-distillation (SD):
+
+$$\alpha(\mathbf{c})\,\mathbb{KL}\left[q_{\text{expert}}, p_{\theta}\right] + (1 - \alpha(\mathbf{c}))\,\mathbb{KL}\left[p_{\theta}, q_{\text{teacher}}\right].$$
+
+What is $\alpha(\mathbf{c})$? It is a way to quantify the hardness of a task. For example, after sampling $N$ times from the model $\{\mathbf{z}\}^{N}_{i=1} \sim p_{\theta}(\mathbf{z} | \mathbf{c})$ without success ($\text{pass@}N \approx 0$), $\alpha(\mathbf{c}) = 1$. In general $\alpha(\mathbf{c}) = n / N$ with $N \geq 64$ and $n$ the number of successes. Notice that if $\alpha = 0.5$ and $q_{\text{expert}} = q_{\text{teacher}}$, we obtain the JSD.
+
+### Exploration via Distillation
+
+Can we use SD to incentivize exploration? Can we define a teacher that wants to explore ($\mathbf{h}$ could be an entropy or novelty bonus).
+
+### Self-Distillation as Scoring
+
+**Reinforced finetuning.** We can use the rKL as a scoring function for RFT. For each pair $(\mathbf{c}, \mathbf{y})$, with $\mathbf{c}$ being the prompt (math question) and $\mathbf{y}$ being the answer, we sample $p_{\theta}(\mathbf{z} | \mathbf{c})$ $N$ times for each prompt $\mathbf{c}$, and compute the scores
+
+$$s_i(\mathbf{c}) = \mathbb{KL}\left[p_{\theta}(\mathbf{z}_i | \mathbf{c}),\, p_{\theta}(\mathbf{z}_i | \mathbf{c}, \mathbf{y})\right] \quad \forall\, i = 1, \ldots, N.$$
+
+We then sort (high to low) and select the top-$K$ and tune on them. We can also select the following top-$K$ as negatives for an (on-policy) DPO-like training.
+
+**STaR-distillation.** The same approach combined with inference-time scaling gives a STaR loop with self-distillation. Hints as posterior inference. Use the KL as scoring/verification mechanism.
+
+**Curriculum distillation.** Early in training, provide soft hints to the teacher, $q(\mathbf{z} | \mathbf{h})$, where $\mathbf{h}$ is a weak constraint. Late in training, provide strong constraints (target label). This approach aims to improve exploration early on.
