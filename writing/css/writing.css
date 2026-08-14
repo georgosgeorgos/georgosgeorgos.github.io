@@ -489,6 +489,12 @@ li > ul, li > ol {
     margin: 0.3em 0;
 }
 
+/* --- MATH (KaTeX display) --- */
+.essay-container .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
 /* --- HORIZONTAL RULE --- */
 hr {
     border: none;
