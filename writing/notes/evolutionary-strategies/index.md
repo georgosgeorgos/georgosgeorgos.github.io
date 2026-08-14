@@ -91,7 +91,7 @@ $$\begin{aligned}
 &= \int q(\epsilon) F(\mu + \sigma \epsilon) \dfrac{\epsilon}{\sigma}\, d\epsilon,
 \end{aligned}$$
 
-where we use for the Gaussian distribution
+where, for the Gaussian distribution, we use
 
 $$\nabla_\mu \log q(\theta;\mu) = \frac{\theta-\mu}{\sigma^2} = \frac{\epsilon}{\sigma}.$$
 
@@ -105,7 +105,7 @@ This expression follows from the log-derivative trick applied to the search dist
 
 **Pathwise derivative.** If $F(\theta)$ is differentiable, the pathwise gradient can be derived
 
-$$\nabla_{\mu} \mathbb{E}_{q(\epsilon)}\left[F(\mu + \sigma \epsilon)\right] = \mathbb{E}_{q(\epsilon)}\left[\nabla_{\mu}F(\mu + \sigma \epsilon)\right],$$
+$$\nabla_{\mu} \mathbb{E}_{q(\epsilon)}\left[F(\mu + \sigma \epsilon)\right] = \mathbb{E}_{q(\epsilon)}\left[\nabla_{\mu}F(\mu + \sigma \epsilon)\right].$$
 
 Since $\theta=\mu+\sigma\epsilon$ and $\partial\theta/\partial\mu=I$, the chain rule gives
 
