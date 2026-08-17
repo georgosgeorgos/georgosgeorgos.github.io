@@ -41,20 +41,29 @@
     <div id="epigraph"></div>
 
     <div class="listing-container">
-        <ul class="essay-list">
-            <li data-category="note">
-                <span class="title"><a href="notes/evolutionary-strategies/index.html">Smoothing Your Way to Gradient Ascent with Evolutionary Strategies</a></span>
-                <span class="attribution">Aug 14, 2026 · <span class="tag">note</span></span>
-            </li>
-            <li data-category="note">
-                <span class="title"><a href="notes/off-policy/index.html">How Off-Policy is Off-Policy Enough?</a></span>
-                <span class="attribution">Apr 22, 2026 · <span class="tag">note</span></span>
-            </li>
-            <li data-category="note">
-                <span class="title"><a href="notes/advantages-and-gradients/index.html">Advantages and Where to Find (Divergences over) Them</a></span>
-                <span class="attribution">Mar 18, 2026 · <span class="tag">note</span></span>
-            </li>
-        </ul>
+        <div class="essay-grid">
+            <a href="notes/evolutionary-strategies/index.html" class="essay-card" data-category="note">
+                <div class="card-img"><img src="images/evolutionary.jpeg" alt=""></div>
+                <div class="card-text">
+                    <span class="card-title">Smoothing Your Way to Gradient Ascent with Evolutionary Strategies</span>
+                    <span class="card-meta">Aug 2026 · <span class="tag">note</span></span>
+                </div>
+            </a>
+            <a href="notes/off-policy/index.html" class="essay-card" data-category="note">
+                <div class="card-img"><img src="images/off-policy.png" alt=""></div>
+                <div class="card-text">
+                    <span class="card-title">How Off-Policy is Off-Policy Enough?</span>
+                    <span class="card-meta">Apr 2026 · <span class="tag">note</span></span>
+                </div>
+            </a>
+            <a href="notes/advantages-and-gradients/index.html" class="essay-card" data-category="note">
+                <div class="card-img"><img src="images/distill.jpeg" alt=""></div>
+                <div class="card-text">
+                    <span class="card-title">Advantages and Where to Find (Divergences over) Them</span>
+                    <span class="card-meta">Mar 2026 · <span class="tag">note</span></span>
+                </div>
+            </a>
+        </div>
     </div>
 
     <!-- Font Switcher (commented out — using Iowan Old Style)
@@ -90,8 +99,8 @@
 
     <script>
     function filterItems(filter) {
-        document.querySelectorAll('.essay-list li').forEach(function(li) {
-            li.style.display = (filter === 'all' || li.getAttribute('data-category') === filter) ? '' : 'none';
+        document.querySelectorAll('.essay-card').forEach(function(card) {
+            card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
         });
     }
     document.querySelectorAll('[data-filter]').forEach(function(link) {

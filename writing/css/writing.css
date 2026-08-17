@@ -555,7 +555,7 @@ hr {
    ============================================================= */
 
 .listing-container {
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 60px 24px 100px;
     position: relative;
@@ -610,37 +610,64 @@ hr {
     border-radius: 3px;
 }
 
-.essay-list {
-    list-style: disc;
-    padding-left: 1.2em;
-    margin: 0;
+.essay-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
 }
 
-.essay-list li {
-    padding: 12px 0;
-}
-
-.essay-list .title {
+.essay-card {
     display: block;
+    text-decoration: none;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.essay-list .title a {
+.essay-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+}
+
+.essay-card .card-img {
+    overflow: hidden;
+    border-radius: 6px 6px 0 0;
+}
+
+.essay-card .card-img img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    cursor: pointer;
+    transform: scale(1.4);
+    transform-origin: center;
+}
+
+.card-text {
+    padding: 14px 4px;
+}
+
+.card-title {
+    display: block;
     font-family: inherit;
     font-size: 17px;
     font-weight: 500;
     color: #1a1a1a;
+    line-height: 1.4;
 }
 
-.essay-list .title a:hover {
+.essay-card:hover .card-title {
     color: #4a6741;
-    text-decoration: none;
 }
 
-.essay-list .attribution {
+.card-meta {
     display: block;
     color: #999;
     font-size: 14px;
-    margin-top: 2px;
+    margin-top: 6px;
 }
 
 /* =============================================================
@@ -753,6 +780,15 @@ hr {
     .essay-nav a {
         padding: 8px 0;
         margin: 0;
+        font-size: 15px;
+    }
+
+    .essay-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .card-title {
         font-size: 15px;
     }
 }
