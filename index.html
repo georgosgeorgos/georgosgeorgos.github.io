@@ -240,7 +240,7 @@
                                     <p>
                                         <a href="https://arxiv.org/abs/2606.08854" target="_blank">
                                         <h3 class="papertitle">
-                                            sGPO: Trading Inference FLOPs for Training Efficiency in RLVR
+                                            DeliberateRL: Shaping the Practice Distribution for Compute-Efficient RLVR
                                         </h3>
                                         </a>
                                         <br>
@@ -253,8 +253,17 @@
                                         <em>Under Review</em>, 2026
                                         <br>
                                     </p>
-                                    Standard Reinforcement Learning with Verifiable Rewards (RLVR) training allocates a fixed rollout budget to every query, without regard for what each query's difficulty means for the current policy. 
-                                    This leads to two symmetric failure modes: easy queries produce near-zero advantage because the policy already solves them, while unsolvable queries produce no signal because the policy never solves them. Both regimes waste training FLOPs without contributing to a learning gradient. We introduce sorted Group Policy Optimization (sGPO), a compute-efficient strategy that trades a small budget of inference FLOPs for a large reduction in wasted training FLOPs. The key insight is that cheap inference compute can serve as a single offline proxy for query difficulty. By generating a small batch of parallel samples per query under the initial policy, we obtain a model-aware empirical success rate.
+                                    Reinforcement learning with verifiable rewards (RLVR) commonly assigns fixed
+                                    rollout budgets to queries with widely different success probabilities under
+                                    the policy, repeatedly producing all-correct or all-incorrect response groups
+                                    that consume generation compute but yield no usable group-relative learning
+                                    signal. We frame allocation as shaping the practice distribution: how
+                                    training effort is distributed across queries of different policy competence
+                                    over the course of training. Inspired by deliberate practice, DeliberateRL is a
+                                    competence-aware offline framework that assesses each query's success rate
+                                    once with a verified inference-time profiling pass and uses it to decide
+                                    what to practice, how much to practice each query, and
+                                    when. 
                                 </div>
                             </div>
 
@@ -279,7 +288,8 @@
                                         <a href="https://akashgit.github.io" target="_blank">Akash Srivastava</a>,
                                         <a href="https://xuk.ai/" target="_blank">Kai Xu</a>
                                         <br>
-                                        <em>Under Review</em>, 2026
+                                        <em>Neural Information Processing Systems,
+                                            NeurIPS</em>, 2026
                                         <br>
                                     </p>
                                     Inference-Time Scaling (ITS) has largely succeeded in verifiable domains like
