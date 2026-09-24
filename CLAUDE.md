@@ -31,7 +31,7 @@ Personal academic website for Giorgio Giannone — static HTML/CSS/JS site hoste
 
 ## Branches
 
-- `master` — Production branch (deployed via GitHub Pages)
+- `main` — Production branch (deployed via GitHub Pages)
 - `redesign/modernize` — Active redesign branch
 
 ## Conventions
